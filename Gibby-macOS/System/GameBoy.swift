@@ -7,6 +7,16 @@ public enum GameBoy {
 }
 
 extension GameBoy {
+    public var headerSize: Int {
+        switch self {
+        case .original: fallthrough
+        case    .color: return 0x50
+        default:        return 0xC0
+        }
+    }
+}
+
+extension GameBoy {
     public var logo: Data {
         switch self {
         case .original: fallthrough

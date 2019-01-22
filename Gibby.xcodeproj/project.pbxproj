@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1381BE21F6AE720071E293 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1381BD21F6AE720071E293 /* Data+Ext.swift */; };
+		0A1381C021F6AE920071E293 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1381BF21F6AE920071E293 /* Header.swift */; };
 		0A3DD50721F2AA3100BCC6D4 /* Gibby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */; };
 		0A3DD50C21F2AA3100BCC6D4 /* MemoryControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DD50B21F2AA3100BCC6D4 /* MemoryControllerTests.swift */; };
 		0A3DD50E21F2AA3100BCC6D4 /* Gibby_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1381BD21F6AE720071E293 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
+		0A1381BF21F6AE920071E293 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gibby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gibby_macOS.h; sourceTree = "<group>"; };
 		0A3DD50621F2AA3100BCC6D4 /* Gibby-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gibby-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A1381BC21F6AE620071E293 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0A1381BD21F6AE720071E293 /* Data+Ext.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		0A3DD4D221F2A9D600BCC6D4 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +88,7 @@
 		0A3DD4FF21F2AA3100BCC6D4 /* Gibby-macOS */ = {
 			isa = PBXGroup;
 			children = (
+				0A1381BC21F6AE620071E293 /* Utils */,
 				0A3DD51521F2AA4A00BCC6D4 /* System */,
 				0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */,
 			);
@@ -96,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3DD51F21F2B15B00BCC6D4 /* GameBoy.swift */,
+				0A1381BF21F6AE920071E293 /* Header.swift */,
 				0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */,
 			);
 			path = System;
@@ -209,6 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1381C021F6AE920071E293 /* Header.swift in Sources */,
+				0A1381BE21F6AE720071E293 /* Data+Ext.swift in Sources */,
 				0A3DD52021F2B15B00BCC6D4 /* GameBoy.swift in Sources */,
 				0A3DD51721F2AAB600BCC6D4 /* MemoryController.swift in Sources */,
 			);
