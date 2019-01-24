@@ -7,11 +7,19 @@ public enum GameBoy {
 }
 
 extension GameBoy {
-    public var headerSize: Int {
+    var headerSize: Int {
         switch self {
         case .original: fallthrough
         case    .color: return 0x50
-        default:        return 0xC0
+        case  .advance: return 0xC0
+        }
+    }
+    
+    var headerOffset: Int {
+        switch self{
+        case .original: fallthrough
+        case    .color: return 0x100
+        case  .advance: fatalError("Game Boy Advance is not yet supported.")
         }
     }
 }
