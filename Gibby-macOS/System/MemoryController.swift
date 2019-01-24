@@ -65,14 +65,14 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
             case (false, false): return 0x00
             case (true, false):  return 0x08
             case (true, true):   return 0x09
-            default:             return 0x0A
+            default:             return MemoryController.badRawValues[typeDescription]!
             }
         case .one(let ram, let battery):
             switch (ram, battery) {
             case (false, false): return 0x01
             case (true, false):  return 0x02
             case (true, true):   return 0x03
-            default:             return 0x04
+            default:             return MemoryController.badRawValues[typeDescription]!
             }
         case .two(let battery):
             return battery ? 0x06 : 0x05
@@ -81,7 +81,7 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
             case (false, false): return 0x0B
             case (true, false):  return 0x0C
             case (true, true):   return 0x0D
-            default:             return 0x0E
+            default:             return MemoryController.badRawValues[typeDescription]!
             }
         case .three(let ram, let battery, let timer):
             switch (ram, battery, timer) {
@@ -90,7 +90,7 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
             case (false, false, false): return 0x11
             case (true, false, false):  return 0x12
             case (true, true, false):   return 0x13
-            default:                    return 0x14
+            default:                    return MemoryController.badRawValues[typeDescription]!
             }
             
         case .five(let ram, let battery, let rumble):
@@ -101,14 +101,14 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
             case (false, false, true):  return 0x1C
             case (true, false, true):   return 0x1D
             case (true, true, true):    return 0x1E
-            default:                    return 0x1F
+            default:                    return MemoryController.badRawValues[typeDescription]!
             }
-        case .six: return 0x20
-        case .seven: return 0x22
-        case .camera: return 0xFC
-        case .tama5: return 0xFD
-        case .huc1: return 0xFF
-        case .huc3: return 0xFE
+        case .six:      return 0x20
+        case .seven:    return 0x22
+        case .camera:   return 0xFC
+        case .tama5:    return 0xFD
+        case .huc1:     return 0xFF
+        case .huc3:     return 0xFE
         case .unknown(let value):
             return value
         }
@@ -118,11 +118,22 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
         .compactMap(MemoryController.init)
         .filter({ $0.isValid })
     
+    private static let badRawValues: [String:UInt8] = [
+        "ROM"  :0x0A
+      , "MBC1" :0x04
+      , "MMM1" :0x0E
+      , "MBC3" :0x14
+      , "MBC5" :0x1F
+    ]
+
     public var isValid: Bool {
-        guard case .unknown(value: rawValue) = self else {
+        if case .unknown = self {
+            return false
+        } else if MemoryController.badRawValues[typeDescription] == rawValue {
+            return false
+        } else {
             return true
         }
-        return false
     }
     
     public var hardware: ExternalHardware {
@@ -213,24 +224,27 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
         return true
     }
     
-    public var debugDescription: String {
-        var type = ""
+    private var typeDescription: String {
         switch self {
-        case .rom: type = "ROM"
-        case .one: type = "MBC1"
-        case .two: type = "MBC2"
-        case .mmm1: type = "MMM1"
-        case .three: type = "MBC3"
-        case .five: type = "MBC5"
-        case .six: type = "MBC6"
-        case .seven: type = "MBC7"
-        case .camera: type = "POCKET"
-        case .tama5: type = "BANDAI TAMA5"
-        case .huc3: type = "HuC3"
-        case .huc1: type = "HuC1"
-        default: ()
+        case .rom: return "ROM"
+        case .one: return "MBC1"
+        case .two: return "MBC2"
+        case .mmm1: return "MMM1"
+        case .three: return "MBC3"
+        case .five: return "MBC5"
+        case .six: return "MBC6"
+        case .seven: return "MBC7"
+        case .camera: return "POCKET"
+        case .tama5: return "BANDAI TAMA5"
+        case .huc3: return "HuC3"
+        case .huc1: return "HuC1"
+        default: return ""
         }
-        
+    }
+    
+    public var debugDescription: String {
+        var type = typeDescription
+
         if hasCamera  { type += " \(ExternalHardware.camera.description)" }
         if hasSensor  { type += "+\(ExternalHardware.sensor.description)" }
         if hasRumble  { type += "+\(ExternalHardware.rumble.description)" }
