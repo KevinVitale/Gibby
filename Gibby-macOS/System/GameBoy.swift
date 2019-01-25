@@ -19,7 +19,7 @@ extension GameBoy {
         switch self{
         case .original: fallthrough
         case    .color: return 0x100
-        case  .advance: fatalError("Game Boy Advance is not yet supported.")
+        case  .advance: return 0x08000000
         }
     }
 }

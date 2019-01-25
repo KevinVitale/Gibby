@@ -1,16 +1,36 @@
 import XCTest
-import Gibby
+@testable import Gibby
 
-class GameBoyTests: XCTestCase {
-    func testOriginal() {
-        XCTAssertEqual(GameBoy.original.logo.count, 48)
+final class GameBoySystemTests: XCTestCase {
+    var systems: [GameBoy] { return [.original, .color, .advance] }
+    
+    func testLogoCount() {
+        for system in systems {
+            switch system {
+            case .original: fallthrough
+            case    .color: XCTAssertEqual(system.logo.count, 48)
+            case  .advance: XCTAssertEqual(system.logo.count, 156)
+            }
+        }
     }
-
-    func testColor() {
-        XCTAssertEqual(GameBoy.color.logo.count, 48)
+    
+    func testHeaderSize() {
+        for system in systems {
+            switch system {
+            case .original: fallthrough
+            case    .color: XCTAssertEqual(system.headerSize, 80)
+            case  .advance: XCTAssertEqual(system.headerSize, 192)
+            }
+        }
     }
-
-    func testAdvance() {
-        XCTAssertEqual(GameBoy.advance.logo.count, 156)
+    
+    func testHeaderOffset() {
+        for system in systems {
+            switch system {
+            case .original: fallthrough
+            case    .color: XCTAssertEqual(system.headerOffset, 256)
+            case  .advance: XCTAssertEqual(system.headerOffset, 134217728)
+            }
+        }
     }
 }
