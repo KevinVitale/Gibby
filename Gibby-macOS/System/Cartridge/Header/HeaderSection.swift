@@ -18,9 +18,9 @@ extension Cartridge.Header {
         case headerChecksum
         case cartChecksum
 
-        var size: Int {
+        private var size: Int {
             switch self {
-            case .boot:             return 3
+            case .boot:             return 4
             case .logo:             return 48
             case .title:            return 16
             case .manufacturer:     return 4
@@ -30,7 +30,7 @@ extension Cartridge.Header {
             case .memoryController: return 1
             case .romSize:          return 1
             case .ramSize:          return 1
-            case .region:           return 2
+            case .region:           return 1
             case .legacyLicensee:   return 1
             case .versionMask:      return 1
             case .headerChecksum:   return 1
@@ -38,12 +38,8 @@ extension Cartridge.Header {
             }
         }
         
-        var range: Range<Int> {
-            return (rawValue..<rawValue.advanced(by: size))
-        }
-        
         func range(offsetBy offset: Int = 0) -> Range<Int> {
-            let lowerBound = range.lowerBound.advanced(by: offset)
+            let lowerBound = rawValue.advanced(by: offset)
             let upperBound = lowerBound.advanced(by: size)
             return lowerBound..<upperBound
         }
@@ -77,7 +73,7 @@ extension Cartridge.Header {
         
         static var allSections: [Section] {
             return [
-                .boot
+                  .boot
                 , .logo
                 , .title
                 , .manufacturer
