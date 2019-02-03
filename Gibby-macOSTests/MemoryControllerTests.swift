@@ -51,14 +51,14 @@ class MemomryControllerTests: XCTestCase {
                     guard case .two = mbc else {
                         return XCTFail()
                     }
-                    XCTAssertEqual(mbc.hardware, [])
+                    XCTAssertEqual(mbc.hardware, [.ram])
                     XCTAssertEqual(mbc.debugDescription, "MBC2")
                     configsTested.fulfill()
                 case 0x06:
                     guard case .two = mbc else {
                         return XCTFail()
                     }
-                    XCTAssertEqual(mbc.hardware, [.battery])
+                    XCTAssertEqual(mbc.hardware, [.ram, .battery])
                     XCTAssertEqual(mbc.debugDescription, "MBC2+BATTERY")
                     configsTested.fulfill()
                 case 0x08:

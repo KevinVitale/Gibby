@@ -154,6 +154,8 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
             return true
         case .one(true, _):
             return true
+        case .two:
+            return true
         case .mmm1(true, _):
             return true
         case .three(true, _, _):
@@ -249,7 +251,8 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
         if hasSensor  { type += "+\(ExternalHardware.sensor.description)" }
         if hasRumble  { type += "+\(ExternalHardware.rumble.description)" }
         if hasTimer   { type += "+\(ExternalHardware.timer.description)" }
-        if hasRAM     { type += "+\(ExternalHardware.ram.description)" }
+        if hasRAM && type != "MBC2"
+                      { type += "+\(ExternalHardware.ram.description)" }
         if hasBattery { type += "+\(ExternalHardware.battery.description)" }
         
         return type
