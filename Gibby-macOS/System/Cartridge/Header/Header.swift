@@ -115,9 +115,9 @@ extension Cartridge {
     }
     
     ///
-    public var memoryController: MemoryController {
+    public var memoryController: MemoryController.Configuration {
         guard let value = self[.memoryController].first
-            , case let memoryController = MemoryController(rawValue: value) else {
+            , case let memoryController = MemoryController.Configuration(rawValue: value) else {
                 return .unknown(value: 0x00)
         }
         return memoryController

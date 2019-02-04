@@ -19,6 +19,7 @@
 		0A3DD52021F2B15B00BCC6D4 /* GameBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DD51F21F2B15B00BCC6D4 /* GameBoy.swift */; };
 		0A3DD52221F2B16B00BCC6D4 /* GameBoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */; };
 		0A80727A2208A4AC004EB386 /* ExternalHardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8072792208A4AC004EB386 /* ExternalHardware.swift */; };
+		0A80727C2208A679004EB386 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80727B2208A679004EB386 /* Configuration.swift */; };
 		0AB1A2A7220654F900A5F148 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A2A6220654F900A5F148 /* Address.swift */; };
 		0AB1A2A922065A2000A5F148 /* CartridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		0A3DD51F21F2B15B00BCC6D4 /* GameBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoy.swift; sourceTree = "<group>"; };
 		0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoyTests.swift; sourceTree = "<group>"; };
 		0A8072792208A4AC004EB386 /* ExternalHardware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalHardware.swift; sourceTree = "<group>"; };
+		0A80727B2208A679004EB386 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		0AB1A2A6220654F900A5F148 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartridgeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 		0A8072782208A475004EB386 /* MBC */ = {
 			isa = PBXGroup;
 			children = (
+				0A80727B2208A679004EB386 /* Configuration.swift */,
 				0A8072792208A4AC004EB386 /* ExternalHardware.swift */,
 				0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */,
 			);
@@ -271,6 +274,7 @@
 				0A80727A2208A4AC004EB386 /* ExternalHardware.swift in Sources */,
 				0A11C8C621F8CE510032B11D /* LegacyLicensee.swift in Sources */,
 				0A11C8C921F8CFBE0032B11D /* HeaderSection.swift in Sources */,
+				0A80727C2208A679004EB386 /* Configuration.swift in Sources */,
 				0A3DD51721F2AAB600BCC6D4 /* MemoryController.swift in Sources */,
 				0AB1A2A7220654F900A5F148 /* Address.swift in Sources */,
 				0A11C8C221F8C7C90032B11D /* Cartridge.swift in Sources */,

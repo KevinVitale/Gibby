@@ -3,16 +3,16 @@ import Gibby
 
 class MemomryControllerTests: XCTestCase {
     func testAllValues() {
-        XCTAssertEqual(MemoryController.allControllers.count, 28)
+        XCTAssertEqual(MemoryController.Configuration.allControllers.count, 28)
     }
     
     func testConfigurations() {
-        let expectedFulfillmentCount = MemoryController.allControllers.count
+        let expectedFulfillmentCount = MemoryController.Configuration.allControllers.count
         let configsTested = XCTestExpectation(description: "Only \(expectedFulfillmentCount) configurations should be valid.")
         configsTested.expectedFulfillmentCount = expectedFulfillmentCount
         
         (0x00...0xFF)
-            .compactMap(MemoryController.init)
+            .compactMap(MemoryController.Configuration.init)
             .forEach { mbc in
                 guard mbc.isValid else {
                     return
@@ -223,37 +223,37 @@ class MemomryControllerTests: XCTestCase {
     }
     
     func testBadROMConfiguration() {
-        let badConfig: MemoryController = .rom(ram: false, battery: true)
+        let badConfig: MemoryController.Configuration = .rom(ram: false, battery: true)
         XCTAssertFalse(badConfig.isValid)
         XCTAssertEqual(badConfig.rawValue, 0x0A)
     }
     
     func testBadMBC1Configuration() {
-        let badConfig: MemoryController = .one(ram: false, battery: true)
+        let badConfig: MemoryController.Configuration = .one(ram: false, battery: true)
         XCTAssertFalse(badConfig.isValid)
         XCTAssertEqual(badConfig.rawValue, 0x04)
     }
     
     func testBadMMM1Configuration() {
-        let badConfig: MemoryController = .mmm1(ram: false, battery: true)
+        let badConfig: MemoryController.Configuration = .mmm1(ram: false, battery: true)
         XCTAssertFalse(badConfig.isValid)
         XCTAssertEqual(badConfig.rawValue, 0x0E)
     }
     
     func testBadMBC3Configuration() {
-        let badConfig: MemoryController = .three(ram: false, battery: true, timer: false)
+        let badConfig: MemoryController.Configuration = .three(ram: false, battery: true, timer: false)
         XCTAssertFalse(badConfig.isValid)
         XCTAssertEqual(badConfig.rawValue, 0x14)
     }
     
     func testBadMBC5Configuration() {
-        let badConfig: MemoryController = .five(ram: false, battery: true, rumble: false)
+        let badConfig: MemoryController.Configuration = .five(ram: false, battery: true, rumble: false)
         XCTAssertFalse(badConfig.isValid)
         XCTAssertEqual(badConfig.rawValue, 0x1F)
     }
     
     func testUnknownConfiguration() {
-        let badConfig: MemoryController = .unknown(value: 0x30)
+        let badConfig: MemoryController.Configuration = .unknown(value: 0x30)
         XCTAssertFalse(badConfig.isValid)
         XCTAssertEqual(badConfig.rawValue, 0x30)
     }
