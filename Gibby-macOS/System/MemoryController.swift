@@ -14,7 +14,7 @@ public enum MemoryController: Codable, RawRepresentable, CustomDebugStringConver
     
     case unknown(value: UInt8)
     
-    public init?(rawValue: UInt8) {
+    public init(rawValue: UInt8) {
         switch rawValue {
         case 0x00: self = .rom(ram: false,  battery: false)
             
