@@ -118,7 +118,7 @@ extension MemoryController {
         }
         
         public static let allControllers: [Configuration] = (0x00...0xFF)
-            .compactMap(Configuration.init)
+            .map(Configuration.init)
             .filter({ $0.isValid })
         
         private static let badRawValues: [String:UInt8] = [

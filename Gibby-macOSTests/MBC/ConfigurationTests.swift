@@ -12,7 +12,7 @@ class MemomryControllerTests: XCTestCase {
         configsTested.expectedFulfillmentCount = expectedFulfillmentCount
         
         (0x00...0xFF)
-            .compactMap(MemoryController.Configuration.init)
+            .map(MemoryController.Configuration.init)
             .forEach { mbc in
                 guard mbc.isValid else {
                     return
