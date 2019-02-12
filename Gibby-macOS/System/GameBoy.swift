@@ -7,7 +7,7 @@ public enum GameBoy {
 }
 
 extension GameBoy {
-    var headerSize: Int {
+    public var headerSize: Int {
         switch self {
         case .original: fallthrough
         case    .color: return 0x50
@@ -15,7 +15,7 @@ extension GameBoy {
         }
     }
     
-    var headerOffset: Int {
+    public var headerOffset: Int {
         switch self{
         case .original: fallthrough
         case    .color: return 0x100
