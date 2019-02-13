@@ -44,7 +44,6 @@
 		0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gibby_macOS.h; sourceTree = "<group>"; };
 		0A3DD50621F2AA3100BCC6D4 /* Gibby-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gibby-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3DD50B21F2AA3100BCC6D4 /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
-		0A3DD50D21F2AA3100BCC6D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
 		0A3DD51F21F2B15B00BCC6D4 /* GameBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoy.swift; sourceTree = "<group>"; };
 		0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoyTests.swift; sourceTree = "<group>"; };
@@ -135,7 +134,6 @@
 				0A80727D2208ADF9004EB386 /* MBC */,
 				0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */,
 				0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */,
-				0A3DD50D21F2AA3100BCC6D4 /* Info.plist */,
 			);
 			path = "Gibby-macOSTests";
 			sourceTree = "<group>";
