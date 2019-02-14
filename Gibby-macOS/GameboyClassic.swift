@@ -60,5 +60,14 @@ extension GameboyClassic {
                 bytes[0x0..<0x4] = newValue
             }
         }
+        
+        public var logo: Data {
+            get {
+                return bytes[0x4..<0x34]
+            }
+            set {
+                bytes[0x4..<0x34] = GameboyClassic.logo
+            }
+        }
     }
 }
