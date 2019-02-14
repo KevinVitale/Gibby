@@ -113,5 +113,9 @@ extension GameboyClassic {
         public var ramSizeID: UInt8 {
             return bytes[0x49]
         }
+        
+        public var region: String {
+            return bytes[0x4A] != 0x00 ? "Non-Japanese" : "Japanese"
+        }
     }
 }
