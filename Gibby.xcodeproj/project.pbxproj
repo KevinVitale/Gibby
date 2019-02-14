@@ -37,10 +37,8 @@
 		0A3DD50621F2AA3100BCC6D4 /* Gibby-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gibby-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3DD50B21F2AA3100BCC6D4 /* GameboyClassicConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicConfigurationTests.swift; sourceTree = "<group>"; };
 		0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
-		0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoyTests.swift; sourceTree = "<group>"; };
 		0A8072792208A4AC004EB386 /* ExternalHardware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalHardware.swift; sourceTree = "<group>"; };
 		0A80727B2208A679004EB386 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartridgeTests.swift; sourceTree = "<group>"; };
 		0AB231432214CA84005E76E0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		0AB231452214D42F005E76E0 /* GameboyClassic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassic.swift; sourceTree = "<group>"; };
 		0AB231472214D459005E76E0 /* GameboyAdvance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyAdvance.swift; sourceTree = "<group>"; };
@@ -99,9 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				0AB2314B22151DA0005E76E0 /* PlatformTests */,
-				0A80727D2208ADF9004EB386 /* MBC */,
-				0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */,
-				0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */,
 			);
 			path = "Gibby-macOSTests";
 			sourceTree = "<group>";
@@ -114,13 +109,6 @@
 				0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */,
 			);
 			path = "Memory Controller";
-			sourceTree = "<group>";
-		};
-		0A80727D2208ADF9004EB386 /* MBC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MBC;
 			sourceTree = "<group>";
 		};
 		0AB2314922151CF0005E76E0 /* Platforms */ = {
