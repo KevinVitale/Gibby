@@ -97,5 +97,9 @@ extension GameboyClassic {
         public var licensee: String {
             return bytes[0x44..<0x46].map { String($0, radix: 16, uppercase: true)}.joined()
         }
+        
+        public var superGameboySupported: Bool {
+            return bytes[0x46] == 0x03
+        }
     }
 }
