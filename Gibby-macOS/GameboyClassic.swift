@@ -85,5 +85,9 @@ extension GameboyClassic {
             
             return String(data: title.filter { $0 != 0 }, encoding: .ascii)!
         }
+        
+        public var manufacturer: String {
+            return bytes[0x3F..<0x43].map { String($0, radix: 16, uppercase: true)}.joined()
+        }
     }
 }
