@@ -24,6 +24,7 @@
 		0AB1A2A922065A2000A5F148 /* CartridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */; };
 		0AB231442214CA84005E76E0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231432214CA84005E76E0 /* Platform.swift */; };
 		0AB231462214D42F005E76E0 /* GameboyClassic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231452214D42F005E76E0 /* GameboyClassic.swift */; };
+		0AB231482214D459005E76E0 /* GameboyAdvance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231472214D459005E76E0 /* GameboyAdvance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartridgeTests.swift; sourceTree = "<group>"; };
 		0AB231432214CA84005E76E0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		0AB231452214D42F005E76E0 /* GameboyClassic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassic.swift; sourceTree = "<group>"; };
+		0AB231472214D459005E76E0 /* GameboyAdvance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyAdvance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				0AB231432214CA84005E76E0 /* Platform.swift */,
 				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
+				0AB231472214D459005E76E0 /* GameboyAdvance.swift */,
 				0AB1A2A6220654F900A5F148 /* Address.swift */,
 				0A3DD51521F2AA4A00BCC6D4 /* System */,
 				0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */,
@@ -282,6 +285,7 @@
 			files = (
 				0A1381C021F6AE920071E293 /* Header.swift in Sources */,
 				0A11C8C421F8CE120032B11D /* ColorMode.swift in Sources */,
+				0AB231482214D459005E76E0 /* GameboyAdvance.swift in Sources */,
 				0A3DD52021F2B15B00BCC6D4 /* GameBoy.swift in Sources */,
 				0A80727A2208A4AC004EB386 /* ExternalHardware.swift in Sources */,
 				0A11C8C621F8CE510032B11D /* LegacyLicensee.swift in Sources */,
