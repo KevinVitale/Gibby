@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB2314A22151CFB005E76E0 /* Protocols */,
-				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
+				0AB2314E22151EC8005E76E0 /* Classic */,
 				0AB231472214D459005E76E0 /* GameboyAdvance.swift */,
 			);
 			path = Platforms;
@@ -200,6 +200,14 @@
 				0AB2314C22151DB8005E76E0 /* GameboyClassicTests.swift */,
 			);
 			path = PlatformTests;
+			sourceTree = "<group>";
+		};
+		0AB2314E22151EC8005E76E0 /* Classic */ = {
+			isa = PBXGroup;
+			children = (
+				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
+			);
+			path = Classic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
