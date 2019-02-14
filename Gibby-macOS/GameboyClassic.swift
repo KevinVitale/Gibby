@@ -93,5 +93,9 @@ extension GameboyClassic {
         public var colorMode: ColorMode {
             return ColorMode(rawValue: bytes[0x43])
         }
+        
+        public var licensee: String {
+            return bytes[0x44..<0x46].map { String($0, radix: 16, uppercase: true)}.joined()
+        }
     }
 }
