@@ -74,13 +74,11 @@ extension GameboyClassic {
             var title = Data(bytes[0x34..<0x44])
             
             // Portions of 'title' got re-purposed by BigN post-GBC
-            switch colorMode == .exclusive {
-            case true:
+            if colorMode == .exclusive {
                 title = title[0..<11]
-            default:
-                if self.manufacturer.contains(" ") {
-                    title = title[..<15]
-                }
+            }
+            else if self.manufacturer.contains(" ") {
+                title = title[..<15]
             }
             
             return String(data: title.filter { $0 != 0 }, encoding: .ascii)!
