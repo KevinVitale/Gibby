@@ -56,7 +56,7 @@ extension GameboyClassic {
         
         public var manufacturer: String {
             get {
-                return bytes[.manufacturer].map { String($0, radix: 16, uppercase: true)}.joined()
+                return String(data: bytes[.manufacturer], encoding: .ascii) ?? ""
             }
             set {
                 guard let value = newValue.data(using: .ascii), value.count == 4 else {
