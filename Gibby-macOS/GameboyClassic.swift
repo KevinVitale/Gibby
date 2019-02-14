@@ -121,5 +121,9 @@ extension GameboyClassic {
         public var legacyLicensee: UInt8 {
             return bytes[0x4B]
         }
+        
+        public var version: UInt8 {
+            return bytes[0x4C]
+        }
     }
 }
