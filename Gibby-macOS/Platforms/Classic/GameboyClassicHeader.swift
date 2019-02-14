@@ -77,7 +77,7 @@ extension GameboyClassic {
         }
         
         public var licensee: String {
-            return bytes[.licensee].map { String($0, radix: 16, uppercase: true)}.joined()
+            return String(data: bytes[.licensee], encoding: .ascii) ?? ""
         }
         
         public var superGameboySupported: Bool {
