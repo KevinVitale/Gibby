@@ -8,7 +8,7 @@ public protocol Platform {
 }
 
 extension Platform {
-    public func validate(logo: Data) -> Bool {
+    public static func validate(logo: Data) -> Bool {
         return logo == Self.logo
     }
 }
