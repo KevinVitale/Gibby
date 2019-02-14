@@ -156,20 +156,19 @@
 			isa = PBXGroup;
 			children = (
 				0A11C8C021F8C7BA0032B11D /* Cartridge */,
-				0A8072782208A475004EB386 /* MBC */,
 				0A3DD51F21F2B15B00BCC6D4 /* GameBoy.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
 		};
-		0A8072782208A475004EB386 /* MBC */ = {
+		0A8072782208A475004EB386 /* Memory Controller */ = {
 			isa = PBXGroup;
 			children = (
 				0A80727B2208A679004EB386 /* Configuration.swift */,
 				0A8072792208A4AC004EB386 /* ExternalHardware.swift */,
 				0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */,
 			);
-			path = MBC;
+			path = "Memory Controller";
 			sourceTree = "<group>";
 		};
 		0A80727D2208ADF9004EB386 /* MBC */ = {
@@ -209,6 +208,7 @@
 		0AB2314E22151EC8005E76E0 /* Classic */ = {
 			isa = PBXGroup;
 			children = (
+				0A8072782208A475004EB386 /* Memory Controller */,
 				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
 				0AB2314F22151F10005E76E0 /* GameboyClassicColorMode.swift */,
 				0AB2315122151FB9005E76E0 /* GameboyClassicHeader.swift */,
