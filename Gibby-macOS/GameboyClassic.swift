@@ -121,7 +121,16 @@ extension GameboyClassic {
         }
         
         public var superGameboySupported: Bool {
-            return bytes[0x46] == 0x03
+            get {
+                return bytes[0x46] == 0x03
+            }
+            set {
+                guard newValue == true else {
+                    bytes[0x46] = 0x00
+                    return
+                }
+                bytes[0x46] = 0x03
+            }
         }
         
         public var configuration: Gibby.MemoryController.Configuration {
