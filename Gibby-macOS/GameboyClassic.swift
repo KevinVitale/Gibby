@@ -42,6 +42,29 @@ extension GameboyClassic {
 }
 
 extension GameboyClassic {
+    public enum Region: UInt8, ExpressibleByStringLiteral, CustomStringConvertible {
+        case japanese    = 0x00
+        case nonJapanese = 0x01
+        
+        init(stringLiteral value: String) {
+            if value.capitalized == "Japanese" {
+                self = .japanese
+            }
+            else {
+                self = .nonJapanese
+            }
+        }
+        
+        var description: String {
+            switch self {
+            case .japanese: return "Japanese"
+            case .nonJapanese: return "Non-Japanese"
+            }
+        }
+    }
+}
+
+extension GameboyClassic {
     public struct Header {
         private var bytes: Data
         
