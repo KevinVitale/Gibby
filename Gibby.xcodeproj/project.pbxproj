@@ -22,6 +22,7 @@
 		0A80727C2208A679004EB386 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80727B2208A679004EB386 /* Configuration.swift */; };
 		0AB1A2A7220654F900A5F148 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A2A6220654F900A5F148 /* Address.swift */; };
 		0AB1A2A922065A2000A5F148 /* CartridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */; };
+		0AB231442214CA84005E76E0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231432214CA84005E76E0 /* Platform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0A80727B2208A679004EB386 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		0AB1A2A6220654F900A5F148 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartridgeTests.swift; sourceTree = "<group>"; };
+		0AB231432214CA84005E76E0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		0A3DD4FF21F2AA3100BCC6D4 /* Gibby-macOS */ = {
 			isa = PBXGroup;
 			children = (
+				0AB231432214CA84005E76E0 /* Platform.swift */,
 				0AB1A2A6220654F900A5F148 /* Address.swift */,
 				0A3DD51521F2AA4A00BCC6D4 /* System */,
 				0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */,
@@ -280,6 +283,7 @@
 				0A80727A2208A4AC004EB386 /* ExternalHardware.swift in Sources */,
 				0A11C8C621F8CE510032B11D /* LegacyLicensee.swift in Sources */,
 				0A11C8C921F8CFBE0032B11D /* HeaderSection.swift in Sources */,
+				0AB231442214CA84005E76E0 /* Platform.swift in Sources */,
 				0A80727C2208A679004EB386 /* Configuration.swift in Sources */,
 				0A3DD51721F2AAB600BCC6D4 /* MemoryController.swift in Sources */,
 				0AB1A2A7220654F900A5F148 /* Address.swift in Sources */,
