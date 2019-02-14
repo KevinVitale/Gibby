@@ -89,5 +89,9 @@ extension GameboyClassic {
         public var manufacturer: String {
             return bytes[0x3F..<0x43].map { String($0, radix: 16, uppercase: true)}.joined()
         }
+        
+        public var colorMode: ColorMode {
+            return ColorMode(rawValue: bytes[0x43])
+        }
     }
 }
