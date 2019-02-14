@@ -129,5 +129,9 @@ extension GameboyClassic {
         public var headerChecksum: UInt8 {
             return bytes[0x4D]
         }
+        
+        public var romChecksum: UInt16 {
+            return UInt16(bytes[0x4E]).byteSwapped | UInt16(bytes[0x4F])
+        }
     }
 }
