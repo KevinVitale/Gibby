@@ -109,5 +109,9 @@ extension GameboyClassic {
         public var romSizeID: UInt8 {
             return bytes[0x48]
         }
+        
+        public var ramSizeID: UInt8 {
+            return bytes[0x49]
+        }
     }
 }
