@@ -141,12 +141,20 @@
 		0AB2314E22151EC8005E76E0 /* Classic */ = {
 			isa = PBXGroup;
 			children = (
+				0AB231762215FAAD005E76E0 /* Additional Types */,
 				0A8072782208A475004EB386 /* Memory Controller */,
 				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
-				0AB2314F22151F10005E76E0 /* GameboyClassicColorMode.swift */,
 				0AB2315122151FB9005E76E0 /* GameboyClassicHeader.swift */,
 			);
 			path = Classic;
+			sourceTree = "<group>";
+		};
+		0AB231762215FAAD005E76E0 /* Additional Types */ = {
+			isa = PBXGroup;
+			children = (
+				0AB2314F22151F10005E76E0 /* GameboyClassicColorMode.swift */,
+			);
+			path = "Additional Types";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
