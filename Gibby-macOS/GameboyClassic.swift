@@ -134,7 +134,15 @@ extension GameboyClassic {
         }
         
         public var configuration: Gibby.MemoryController.Configuration {
-            return .init(rawValue: bytes[0x47])
+            get {
+                return .init(rawValue: bytes[0x47])
+            }
+            set {
+                if case .unknown = newValue {
+                    return
+                }
+                bytes[0x47] = newValue.rawValue
+            }
         }
         
         public var romSizeID: UInt8 {
