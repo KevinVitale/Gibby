@@ -48,5 +48,17 @@ extension GameboyClassic {
         public init(bytes: Data) {
             self.bytes = Data(bytes)
         }
+
+        public var bootInstructions: Data {
+            get {
+                return bytes[0x0..<0x4]
+            }
+            set {
+                guard newValue.count == 4 else {
+                    return
+                }
+                bytes[0x0..<0x4] = newValue
+            }
+        }
     }
 }
