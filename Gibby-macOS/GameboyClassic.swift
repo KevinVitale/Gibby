@@ -96,7 +96,15 @@ extension GameboyClassic {
         }
         
         public var manufacturer: String {
-            return bytes[0x3F..<0x43].map { String($0, radix: 16, uppercase: true)}.joined()
+            get {
+                return bytes[0x3F..<0x43].map { String($0, radix: 16, uppercase: true)}.joined()
+            }
+            set {
+                guard let value = newValue.data(using: .ascii), value.count == 4 else {
+                    return
+                }
+                bytes[0x3F..<0x43] = value
+            }
         }
         
         public var colorMode: ColorMode {
