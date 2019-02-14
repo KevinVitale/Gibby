@@ -71,17 +71,16 @@ extension GameboyClassic {
         }
         
         public var title: String {
-            var title = Data(bytes[0x34..<0x44])
-            
-            // Portions of 'title' got re-purposed by BigN post-GBC
-            if colorMode == .exclusive {
-                title = title[0..<11]
+            get {
+                var title = Data(bytes[0x34..<0x44])
+                
+                // Portions of 'title' got re-purposed by BigN post-GBC
+                if colorMode == .exclusive {
+                    title = title[0..<11]
+                }
+                
+                return String(data: title.filter { $0 != 0 }, encoding: .ascii)!
             }
-            else if self.manufacturer.contains(" ") {
-                title = title[..<15]
-            }
-            
-            return String(data: title.filter { $0 != 0 }, encoding: .ascii)!
         }
         
         public var manufacturer: String {
