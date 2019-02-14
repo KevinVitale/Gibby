@@ -19,6 +19,7 @@
 		0AB2315022151F10005E76E0 /* GameboyClassicColorMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2314F22151F10005E76E0 /* GameboyClassicColorMode.swift */; };
 		0AB2315222151FB9005E76E0 /* GameboyClassicHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2315122151FB9005E76E0 /* GameboyClassicHeader.swift */; };
 		0AB231552215242D005E76E0 /* GameboyClassicConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DD50B21F2AA3100BCC6D4 /* GameboyClassicConfigurationTests.swift */; };
+		0AB231722215F60C005E76E0 /* PlatformMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231712215F60C005E76E0 /* PlatformMemory.swift */; };
 		0AB231782215FABC005E76E0 /* GameboyClassicRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231772215FABC005E76E0 /* GameboyClassicRegion.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		0AB2314C22151DB8005E76E0 /* GameboyClassicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicTests.swift; sourceTree = "<group>"; };
 		0AB2314F22151F10005E76E0 /* GameboyClassicColorMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicColorMode.swift; sourceTree = "<group>"; };
 		0AB2315122151FB9005E76E0 /* GameboyClassicHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicHeader.swift; sourceTree = "<group>"; };
+		0AB231712215F60C005E76E0 /* PlatformMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformMemory.swift; sourceTree = "<group>"; };
 		0AB231772215FABC005E76E0 /* GameboyClassicRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicRegion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB231432214CA84005E76E0 /* Platform.swift */,
+				0AB231712215F60C005E76E0 /* PlatformMemory.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				0AB231482214D459005E76E0 /* GameboyAdvance.swift in Sources */,
 				0A80727A2208A4AC004EB386 /* ExternalHardware.swift in Sources */,
+				0AB231722215F60C005E76E0 /* PlatformMemory.swift in Sources */,
 				0AB231782215FABC005E76E0 /* GameboyClassicRegion.swift in Sources */,
 				0AB231442214CA84005E76E0 /* Platform.swift in Sources */,
 				0A80727C2208A679004EB386 /* Configuration.swift in Sources */,
