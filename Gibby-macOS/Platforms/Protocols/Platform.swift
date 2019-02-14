@@ -5,6 +5,9 @@ public protocol Platform {
     associatedtype AddressSpace: FixedWidthInteger
     
     static var logo: Data { get }
+    
+    static var headerOffset:   AddressSpace { get }
+    static var headerSize:     AddressSpace { get }
 }
 
 extension Platform {

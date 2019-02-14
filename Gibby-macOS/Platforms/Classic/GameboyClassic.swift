@@ -9,6 +9,9 @@ public final class GameboyClassic: Platform {
     
     public typealias Cartridge     = Any
     public typealias AddressSpace  = UInt16
+    
+    public static var headerOffset: UInt16 { return 0x100 }
+    public static var headerSize: UInt16   { return 0x50  }
 }
 
 extension GameboyClassic {

@@ -16,5 +16,8 @@ public final class GameboyAdvance: Platform {
     
     public typealias Cartridge = Any
     public typealias AddressSpace = UInt32
+    
+    public static var headerOffset: UInt32 { return 0x08000000 }
+    public static var headerSize:   UInt32 { return 0xC0       }
 }
 
