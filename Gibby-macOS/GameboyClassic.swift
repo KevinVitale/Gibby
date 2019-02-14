@@ -195,7 +195,12 @@ extension GameboyClassic {
         }
         
         public var version: UInt8 {
-            return bytes[0x4C]
+            get {
+                return bytes[0x4C]
+            }
+            set {
+                bytes[0x4C] = newValue
+            }
         }
         
         public var headerChecksum: UInt8 {
