@@ -81,6 +81,18 @@ extension GameboyClassic {
                 
                 return String(data: title.filter { $0 != 0 }, encoding: .ascii)!
             }
+            set {
+                guard var title = String(newValue.prefix(16)).data(using: .ascii) else {
+                    return
+                }
+                
+                guard colorMode != .exclusive else {
+                    bytes[0x34..<0x3F] = title[0..<11]
+                    return
+                }
+                
+                bytes[0x34..<0x43] = title
+            }
         }
         
         public var manufacturer: String {
