@@ -49,7 +49,7 @@
 		0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gibby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gibby_macOS.h; sourceTree = "<group>"; };
 		0A3DD50621F2AA3100BCC6D4 /* Gibby-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gibby-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A3DD50B21F2AA3100BCC6D4 /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
+		0A3DD50B21F2AA3100BCC6D4 /* GameboyClassicConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicConfigurationTests.swift; sourceTree = "<group>"; };
 		0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
 		0A3DD51F21F2B15B00BCC6D4 /* GameBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoy.swift; sourceTree = "<group>"; };
 		0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoyTests.swift; sourceTree = "<group>"; };
@@ -174,7 +174,6 @@
 		0A80727D2208ADF9004EB386 /* MBC */ = {
 			isa = PBXGroup;
 			children = (
-				0A3DD50B21F2AA3100BCC6D4 /* ConfigurationTests.swift */,
 			);
 			path = MBC;
 			sourceTree = "<group>";
@@ -201,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB2314C22151DB8005E76E0 /* GameboyClassicTests.swift */,
+				0A3DD50B21F2AA3100BCC6D4 /* GameboyClassicConfigurationTests.swift */,
 			);
 			path = PlatformTests;
 			sourceTree = "<group>";
@@ -346,9 +346,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3DD52221F2B16B00BCC6D4 /* GameBoyTests.swift in Sources */,
+				0AB231552215242D005E76E0 /* GameboyClassicConfigurationTests.swift in Sources */,
 				0AB2314D22151DB8005E76E0 /* GameboyClassicTests.swift in Sources */,
-				0A3DD50C21F2AA3100BCC6D4 /* ConfigurationTests.swift in Sources */,
 				0AB1A2A922065A2000A5F148 /* CartridgeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
