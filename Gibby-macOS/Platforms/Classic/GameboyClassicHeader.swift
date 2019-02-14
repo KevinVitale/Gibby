@@ -10,28 +10,28 @@ extension GameboyClassic {
         
         public var bootInstructions: Data {
             get {
-                return bytes[0x0..<0x4]
+                return bytes[.boot]
             }
             set {
                 guard newValue.count == 4 else {
                     return
                 }
-                bytes[0x0..<0x4] = newValue
+                bytes[.boot] = newValue
             }
         }
         
         public var logo: Data {
             get {
-                return bytes[0x4..<0x34]
+                return bytes[.logo]
             }
             set {
-                bytes[0x4..<0x34] = GameboyClassic.logo
+                bytes[.logo] = GameboyClassic.logo
             }
         }
         
         public var title: String {
             get {
-                var title = Data(bytes[0x34..<0x44])
+                var title = Data(bytes[.title])
                 
                 // Portions of 'title' got re-purposed by BigN post-GBC
                 if colorMode == .exclusive {
@@ -50,101 +50,105 @@ extension GameboyClassic {
                     return
                 }
                 
-                bytes[0x34..<0x43] = title
+                bytes[.title] = title
             }
         }
         
         public var manufacturer: String {
             get {
-                return bytes[0x3F..<0x43].map { String($0, radix: 16, uppercase: true)}.joined()
+                return bytes[.manufacturer].map { String($0, radix: 16, uppercase: true)}.joined()
             }
             set {
                 guard let value = newValue.data(using: .ascii), value.count == 4 else {
                     return
                 }
-                bytes[0x3F..<0x43] = value
+                bytes[.manufacturer] = value
             }
         }
         
         public var colorMode: GameboyClassic.ColorMode {
             get {
-                return ColorMode(rawValue: bytes[0x43])
+                let byte = bytes[.colorFlag].first ?? 0x00
+                return ColorMode(rawValue: byte)
             }
             set {
-                bytes[0x43] = newValue.rawValue
+                bytes[.colorFlag] = Data([newValue.rawValue])
             }
         }
         
         public var licensee: String {
-            return bytes[0x44..<0x46].map { String($0, radix: 16, uppercase: true)}.joined()
+            return bytes[.licensee].map { String($0, radix: 16, uppercase: true)}.joined()
         }
         
         public var superGameboySupported: Bool {
             get {
-                return bytes[0x46] == 0x03
+                return bytes[.superGameboyFlag] == 0x03
             }
             set {
                 guard newValue == true else {
-                    bytes[0x46] = 0x00
+                    bytes[.superGameboyFlag] = 0x00
                     return
                 }
-                bytes[0x46] = 0x03
+                bytes[.superGameboyFlag] = 0x03
             }
         }
         
-        public var configuration: Gibby.MemoryController.Configuration {
+        public var configuration: MemoryController.Configuration {
             get {
-                return .init(rawValue: bytes[0x47])
+                return .init(rawValue: bytes[.memoryController])
             }
             set {
                 if case .unknown = newValue {
                     return
                 }
-                bytes[0x47] = newValue.rawValue
+                bytes[.memoryController] = newValue.rawValue
             }
         }
         
         public var romSizeID: UInt8 {
-            return bytes[0x48]
+            return bytes[.romSize]
         }
         
         public var ramSizeID: UInt8 {
-            return bytes[0x49]
+            return bytes[.ramSize]
         }
         
         public var region: Region {
             get {
-                return bytes[0x4A] != 0x00 ? "Non-Japanese" : "Japanese"
+                return bytes[.region] != 0x00 ? "Non-Japanese" : "Japanese"
             }
             set {
-                bytes[0x4A] = newValue.rawValue
+                bytes[.region] = newValue.rawValue
             }
         }
         
         public var legacyLicensee: UInt8 {
             get {
-                return bytes[0x4B]
+                return bytes[.legacyLicensee]
             }
             set {
-                bytes[0x4B] = newValue
+                bytes[.legacyLicensee] = newValue
             }
         }
         
         public var version: UInt8 {
             get {
-                return bytes[0x4C]
+                return bytes[.versionMask]
             }
             set {
-                bytes[0x4C] = newValue
+                bytes[.versionMask] = newValue
             }
         }
         
         public var headerChecksum: UInt8 {
-            return bytes[0x4D]
+            return bytes[.headerChecksum]
         }
         
         public var romChecksum: UInt16 {
-            return UInt16(bytes[0x4E]).byteSwapped | UInt16(bytes[0x4F])
+            return UInt16(bytes[.cartChecksum]
+                .reversed()
+                .reduce(0) { $0 | $1 }
+            )
         }
     }
 }
@@ -238,6 +242,26 @@ extension GameboyClassic.Header {
                 , .headerChecksum
                 , .cartChecksum
             ]
+        }
+    }
+}
+
+extension Data {
+    fileprivate subscript(section: GameboyClassic.Header.Section) -> Data {
+        get {
+            return self[section.range(offsetBy: startIndex)]
+        }
+        set {
+            self[section.range(offsetBy: startIndex)] = newValue
+        }
+    }
+    
+    fileprivate subscript(section: GameboyClassic.Header.Section) -> UInt8 {
+        get {
+            return self[section].first ?? 0x00
+        }
+        set {
+            self[section.range(offsetBy: startIndex).startIndex] = newValue
         }
     }
 }
