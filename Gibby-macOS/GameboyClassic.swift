@@ -40,3 +40,13 @@ extension GameboyClassic {
         }
     }
 }
+
+extension GameboyClassic {
+    public struct Header {
+        private var bytes: Data
+        
+        public init(bytes: Data) {
+            self.bytes = Data(bytes)
+        }
+    }
+}
