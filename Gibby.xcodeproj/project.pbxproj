@@ -127,9 +127,7 @@
 		0A3DD4FF21F2AA3100BCC6D4 /* Gibby-macOS */ = {
 			isa = PBXGroup;
 			children = (
-				0AB231432214CA84005E76E0 /* Platform.swift */,
-				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
-				0AB231472214D459005E76E0 /* GameboyAdvance.swift */,
+				0AB2314922151CF0005E76E0 /* Platforms */,
 				0AB1A2A6220654F900A5F148 /* Address.swift */,
 				0A3DD51521F2AA4A00BCC6D4 /* System */,
 				0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */,
@@ -173,6 +171,24 @@
 				0A3DD50B21F2AA3100BCC6D4 /* ConfigurationTests.swift */,
 			);
 			path = MBC;
+			sourceTree = "<group>";
+		};
+		0AB2314922151CF0005E76E0 /* Platforms */ = {
+			isa = PBXGroup;
+			children = (
+				0AB2314A22151CFB005E76E0 /* Protocols */,
+				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
+				0AB231472214D459005E76E0 /* GameboyAdvance.swift */,
+			);
+			path = Platforms;
+			sourceTree = "<group>";
+		};
+		0AB2314A22151CFB005E76E0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0AB231432214CA84005E76E0 /* Platform.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
