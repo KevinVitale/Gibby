@@ -25,6 +25,7 @@
 		0AB231442214CA84005E76E0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231432214CA84005E76E0 /* Platform.swift */; };
 		0AB231462214D42F005E76E0 /* GameboyClassic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231452214D42F005E76E0 /* GameboyClassic.swift */; };
 		0AB231482214D459005E76E0 /* GameboyAdvance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231472214D459005E76E0 /* GameboyAdvance.swift */; };
+		0AB2314D22151DB8005E76E0 /* GameboyClassicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2314C22151DB8005E76E0 /* GameboyClassicTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		0AB231432214CA84005E76E0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		0AB231452214D42F005E76E0 /* GameboyClassic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassic.swift; sourceTree = "<group>"; };
 		0AB231472214D459005E76E0 /* GameboyAdvance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyAdvance.swift; sourceTree = "<group>"; };
+		0AB2314C22151DB8005E76E0 /* GameboyClassicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		0A3DD50A21F2AA3100BCC6D4 /* Gibby-macOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				0AB2314B22151DA0005E76E0 /* PlatformTests */,
 				0A80727D2208ADF9004EB386 /* MBC */,
 				0AB1A2A822065A2000A5F148 /* CartridgeTests.swift */,
 				0A3DD52121F2B16B00BCC6D4 /* GameBoyTests.swift */,
@@ -189,6 +192,14 @@
 				0AB231432214CA84005E76E0 /* Platform.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0AB2314B22151DA0005E76E0 /* PlatformTests */ = {
+			isa = PBXGroup;
+			children = (
+				0AB2314C22151DB8005E76E0 /* GameboyClassicTests.swift */,
+			);
+			path = PlatformTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3DD52221F2B16B00BCC6D4 /* GameBoyTests.swift in Sources */,
+				0AB2314D22151DB8005E76E0 /* GameboyClassicTests.swift in Sources */,
 				0A3DD50C21F2AA3100BCC6D4 /* ConfigurationTests.swift in Sources */,
 				0AB1A2A922065A2000A5F148 /* CartridgeTests.swift in Sources */,
 			);
