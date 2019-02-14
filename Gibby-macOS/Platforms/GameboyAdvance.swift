@@ -14,10 +14,45 @@ public final class GameboyAdvance: Platform {
         0xD6, 0x25, 0xE4, 0x8B, 0x38, 0x0A, 0xAC, 0x72, 0x21, 0xD4, 0xF8, 0x07
         ])
     
-    public typealias Cartridge = Any
+    public typealias Cartridge = GameboyAdvanceCatridge
     public typealias AddressSpace = UInt32
     
     public static var headerOffset: UInt32 { return 0x08000000 }
     public static var headerSize:   UInt32 { return 0xC0       }
+}
+
+public struct GameboyAdvanceCatridge: Cartridge {
+    public init(bytes: Data) {
+        self.bytes = bytes
+    }
+    
+    public typealias Platform = GameboyAdvance
+    public typealias Header = GameboyAdvance.Header
+    
+    private let bytes: Data
+}
+
+extension GameboyAdvance {
+    public struct Header: PlatformHeader {
+        public typealias Platform = GameboyAdvance.Cartridge.Platform
+        
+        private let bytes: Data
+        
+        public init(bytes: Data) {
+            self.bytes = bytes
+        }
+        
+        public var logo: Data {
+            return Platform.logo
+        }
+
+        public var romSize: Int {
+            return 0
+        }
+        
+        public var ramSize: Int {
+            return 0
+        }
+    }
 }
 

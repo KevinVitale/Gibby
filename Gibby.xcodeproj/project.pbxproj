@@ -22,6 +22,7 @@
 		0AB2316A2215B9CB005E76E0 /* Cartridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231692215B9CB005E76E0 /* Cartridge.swift */; };
 		0AB231702215F5E6005E76E0 /* PlatformHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2316F2215F5E6005E76E0 /* PlatformHeader.swift */; };
 		0AB231722215F60C005E76E0 /* PlatformMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231712215F60C005E76E0 /* PlatformMemory.swift */; };
+		0AB231752215F7FC005E76E0 /* GameboyClassicCartridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231742215F7FC005E76E0 /* GameboyClassicCartridge.swift */; };
 		0AB231782215FABC005E76E0 /* GameboyClassicRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231772215FABC005E76E0 /* GameboyClassicRegion.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		0AB231692215B9CB005E76E0 /* Cartridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cartridge.swift; sourceTree = "<group>"; };
 		0AB2316F2215F5E6005E76E0 /* PlatformHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformHeader.swift; sourceTree = "<group>"; };
 		0AB231712215F60C005E76E0 /* PlatformMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformMemory.swift; sourceTree = "<group>"; };
+		0AB231742215F7FC005E76E0 /* GameboyClassicCartridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicCartridge.swift; sourceTree = "<group>"; };
 		0AB231772215FABC005E76E0 /* GameboyClassicRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicRegion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,9 +158,17 @@
 				0AB231732215F7EC005E76E0 /* Cartridge */,
 				0A8072782208A475004EB386 /* Memory Controller */,
 				0AB231452214D42F005E76E0 /* GameboyClassic.swift */,
-				0AB2315122151FB9005E76E0 /* GameboyClassicHeader.swift */,
 			);
 			path = Classic;
+			sourceTree = "<group>";
+		};
+		0AB231732215F7EC005E76E0 /* Cartridge */ = {
+			isa = PBXGroup;
+			children = (
+				0AB231742215F7FC005E76E0 /* GameboyClassicCartridge.swift */,
+				0AB2315122151FB9005E76E0 /* GameboyClassicHeader.swift */,
+			);
+			path = Cartridge;
 			sourceTree = "<group>";
 		};
 		0AB231762215FAAD005E76E0 /* Additional Types */ = {
@@ -290,6 +300,7 @@
 				0AB2315022151F10005E76E0 /* GameboyClassicColorMode.swift in Sources */,
 				0AB231462214D42F005E76E0 /* GameboyClassic.swift in Sources */,
 				0AB2315222151FB9005E76E0 /* GameboyClassicHeader.swift in Sources */,
+				0AB231752215F7FC005E76E0 /* GameboyClassicCartridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

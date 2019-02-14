@@ -1,7 +1,9 @@
 import Foundation
 
 extension GameboyClassic {
-    public struct Header {
+    public struct Header: PlatformHeader {
+       public typealias Platform = GameboyClassic.Cartridge.Platform
+        
         private var bytes: Data
         
         public init(bytes: Data) {
@@ -109,8 +111,16 @@ extension GameboyClassic {
             return bytes[.romSize]
         }
         
+        public var romSize: Int {
+            return 0
+        }
+        
         public var ramSizeID: UInt8 {
             return bytes[.ramSize]
+        }
+        
+        public var ramSize: Int {
+            return 0
         }
         
         public var region: Region {

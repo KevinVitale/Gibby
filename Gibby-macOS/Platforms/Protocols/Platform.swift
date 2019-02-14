@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol Platform {
-    associatedtype Cartridge
+    associatedtype Cartridge: Gibby.Cartridge
     associatedtype AddressSpace: FixedWidthInteger
     
     static var logo: Data { get }
