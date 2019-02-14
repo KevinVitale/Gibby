@@ -186,7 +186,12 @@ extension GameboyClassic {
         }
 
         public var legacyLicensee: UInt8 {
-            return bytes[0x4B]
+            get {
+                return bytes[0x4B]
+            }
+            set {
+                bytes[0x4B] = newValue
+            }
         }
         
         public var version: UInt8 {
