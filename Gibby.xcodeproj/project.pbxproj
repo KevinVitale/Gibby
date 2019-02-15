@@ -76,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A108BAD2217852200A12FA1 /* Advance */ = {
+			isa = PBXGroup;
+			children = (
+				0AB231472214D459005E76E0 /* GameboyAdvance.swift */,
+			);
+			path = Advance;
+			sourceTree = "<group>";
+		};
 		0A3DD4D221F2A9D600BCC6D4 = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				0AB2314A22151CFB005E76E0 /* Protocols */,
+				0A108BAD2217852200A12FA1 /* Advance */,
 				0AB2314E22151EC8005E76E0 /* Classic */,
-				0AB231472214D459005E76E0 /* GameboyAdvance.swift */,
 			);
 			path = Platforms;
 			sourceTree = "<group>";
