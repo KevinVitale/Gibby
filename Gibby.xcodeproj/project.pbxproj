@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A108BB02217858600A12FA1 /* GameboyAdvanceCartridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A108BAF2217858600A12FA1 /* GameboyAdvanceCartridge.swift */; };
 		0A3DD50721F2AA3100BCC6D4 /* Gibby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */; };
 		0A3DD50E21F2AA3100BCC6D4 /* Gibby_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3DD51721F2AAB600BCC6D4 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A108BAF2217858600A12FA1 /* GameboyAdvanceCartridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyAdvanceCartridge.swift; sourceTree = "<group>"; };
 		0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gibby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gibby_macOS.h; sourceTree = "<group>"; };
 		0A3DD50621F2AA3100BCC6D4 /* Gibby-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gibby-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,9 +81,18 @@
 		0A108BAD2217852200A12FA1 /* Advance */ = {
 			isa = PBXGroup;
 			children = (
+				0A108BAE2217857600A12FA1 /* Cartridge */,
 				0AB231472214D459005E76E0 /* GameboyAdvance.swift */,
 			);
 			path = Advance;
+			sourceTree = "<group>";
+		};
+		0A108BAE2217857600A12FA1 /* Cartridge */ = {
+			isa = PBXGroup;
+			children = (
+				0A108BAF2217858600A12FA1 /* GameboyAdvanceCartridge.swift */,
+			);
+			path = Cartridge;
 			sourceTree = "<group>";
 		};
 		0A3DD4D221F2A9D600BCC6D4 = {
@@ -301,6 +312,7 @@
 				0A80727A2208A4AC004EB386 /* ExternalHardware.swift in Sources */,
 				0AB231722215F60C005E76E0 /* PlatformMemory.swift in Sources */,
 				0AB2316A2215B9CB005E76E0 /* Cartridge.swift in Sources */,
+				0A108BB02217858600A12FA1 /* GameboyAdvanceCartridge.swift in Sources */,
 				0AB231782215FABC005E76E0 /* GameboyClassicRegion.swift in Sources */,
 				0AB231442214CA84005E76E0 /* Platform.swift in Sources */,
 				0A80727C2208A679004EB386 /* Configuration.swift in Sources */,
