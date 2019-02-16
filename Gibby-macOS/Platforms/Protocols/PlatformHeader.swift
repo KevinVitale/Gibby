@@ -7,8 +7,7 @@ public protocol PlatformHeader: PlatformMemory, CustomDebugStringConvertible {
     var gameCode:           String? { get set }
     var manufacturer:       String  { get set }
     var version:            UInt8   { get set }
-    var romSize:            Int     { get set }
-    var ramSize:            Int     { get set }
+    var romSize:            Int     { get     }
     var headerChecksum:
         Platform.AddressSpace       { get }
 }
