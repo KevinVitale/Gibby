@@ -10,7 +10,7 @@ extension GameboyClassic {
             self.bytes = Data(bytes)
         }
         
-        public var bootInstructions: Data {
+        public var entryPoint: Data {
             get {
                 return bytes[.boot]
             }
@@ -53,6 +53,15 @@ extension GameboyClassic {
                 }
                 
                 bytes[.title] = title
+            }
+        }
+        
+        public var gameCode: String? {
+            get {
+                return nil
+            }
+            set {
+                
             }
         }
         
@@ -112,7 +121,11 @@ extension GameboyClassic {
         }
         
         public var romSize: Int {
-            return 0
+            get {
+                return 0
+            }
+            set {
+            }
         }
         
         public var ramSizeID: UInt8 {
@@ -120,7 +133,12 @@ extension GameboyClassic {
         }
         
         public var ramSize: Int {
-            return 0
+            get {
+                return 0
+            }
+            set {
+                
+            }
         }
         
         public var region: Region {
@@ -150,8 +168,8 @@ extension GameboyClassic {
             }
         }
         
-        public var headerChecksum: UInt8 {
-            return bytes[.headerChecksum]
+        public var headerChecksum: GameboyClassic.AddressSpace {
+            return UInt16(bytes[.headerChecksum])
         }
         
         public var romChecksum: UInt16 {
