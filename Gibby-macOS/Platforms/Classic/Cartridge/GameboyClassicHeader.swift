@@ -121,9 +121,9 @@ extension GameboyClassic {
         }
         
         private var romBanks: Int {
-            var romBanks = 0
+            var romBanks = 2
             switch romSizeID {
-            case 1...8:
+            case 0...8:
                 romBanks = 2 << romSizeID
             case 0x52, 0x82:
                 romBanks = 72
@@ -146,14 +146,7 @@ extension GameboyClassic {
         }
         
         public var romSize: Int {
-            get {
-                switch romBanks {
-                case 0:
-                    return 0x8000
-                default:
-                    return 0x4000 * romBanks
-                }
-            }
+            return 0x4000 * romBanks
         }
         
         public var ramSizeID: UInt8 {
