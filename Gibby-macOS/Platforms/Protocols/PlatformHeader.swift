@@ -8,6 +8,7 @@ public protocol PlatformHeader: PlatformMemory, CustomDebugStringConvertible {
     var manufacturer:       String  { get set }
     var version:            UInt8   { get set }
     var romSize:            Int     { get     }
+    var ramSize:            Int     { get     }
     var headerChecksum:
         Platform.AddressSpace       { get }
 }
