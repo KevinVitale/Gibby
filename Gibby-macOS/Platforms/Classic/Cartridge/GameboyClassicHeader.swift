@@ -120,11 +120,39 @@ extension GameboyClassic {
             return bytes[.romSize]
         }
         
+        private var romBanks: Int {
+            var romBanks = 0
+            switch romSizeID {
+            case 1...8:
+                romBanks = 2 << romSizeID
+            case 0x52, 0x82:
+                romBanks = 72
+            case 0x53, 0x83:
+                romBanks = 80
+            case 0x54, 0x84:
+                romBanks = 96
+            default: ()
+            }
+            
+            if case .one = configuration {
+                if romSizeID == 5 {
+                    romBanks -= 1
+                }
+                else if romSizeID == 6 {
+                    romBanks -= 3
+                }
+            }
+            return romBanks
+        }
+        
         public var romSize: Int {
             get {
-                return 0
-            }
-            set {
+                switch romBanks {
+                case 0:
+                    return 0x8000
+                default:
+                    return 0x4000 * romBanks
+                }
             }
         }
         
@@ -135,9 +163,6 @@ extension GameboyClassic {
         public var ramSize: Int {
             get {
                 return 0
-            }
-            set {
-                
             }
         }
         
