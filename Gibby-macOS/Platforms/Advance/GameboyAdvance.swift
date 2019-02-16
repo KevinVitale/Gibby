@@ -27,7 +27,7 @@ public struct GameboyAdvanceCatridge: Cartridge {
     }
     
     public typealias Platform = GameboyAdvance
-    public typealias Header = GameboyAdvance.Header
+    public typealias Header = Platform.Header
     
     private let bytes: Data
 }
