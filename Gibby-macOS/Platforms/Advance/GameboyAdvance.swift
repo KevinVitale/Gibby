@@ -17,10 +17,12 @@ public final class GameboyAdvance: Platform {
     public typealias Cartridge = GameboyAdvanceCatridge
     public typealias AddressSpace = UInt32
     
-    public static var headerOffset: UInt32 { return 0x08000000 }
-    public static var headerSize:   UInt32 { return 0xC0       }
+    public static var headerRange: Range<UInt32> {
+        return 0x08000000..<0x080000C0
+    }
 }
 
+// https://problemkaputt.de/gbatek.htm#gbacartridgeheader
 public struct GameboyAdvanceCatridge: Cartridge {
     public init(bytes: Data) {
         self.bytes = bytes
