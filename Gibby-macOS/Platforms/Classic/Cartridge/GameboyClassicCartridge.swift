@@ -9,4 +9,9 @@ public struct GameboyClassicCartridge: Cartridge {
     public typealias Header = Platform.Header
     
     private let bytes: Data
+    
+    public var header: Header {
+        return Header(bytes: self.bytes[Platform.headerRange])
+    }
+    
 }
