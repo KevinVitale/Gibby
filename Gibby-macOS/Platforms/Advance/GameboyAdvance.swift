@@ -37,4 +37,11 @@ public struct GameboyAdvanceCatridge: Cartridge {
         return Header(bytes: self.bytes[Platform.headerRange])
     }
     
+    public var fileExtension: String {
+        return "gba"
+    }
+    
+    public func write(to url: URL, options: Data.WritingOptions = []) throws {
+        try self.bytes.write(to: url, options: options)
+    }
 }
