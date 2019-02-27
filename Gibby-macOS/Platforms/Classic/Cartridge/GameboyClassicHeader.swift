@@ -40,7 +40,13 @@ extension GameboyClassic {
                     title = title[0..<11]
                 }
                 
-                return String(data: title.filter { $0 != 0 }, encoding: .ascii)!
+                var string = String(data: title.filter { $0 != 0 }, encoding: .ascii)!
+                
+                if let range = string.range(of: self.manufacturer) {
+                    string.removeSubrange(range)
+                }
+
+                return string
             }
             set {
                 guard var title = String(newValue.prefix(16)).data(using: .ascii) else {
