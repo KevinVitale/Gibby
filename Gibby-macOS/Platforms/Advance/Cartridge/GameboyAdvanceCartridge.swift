@@ -51,6 +51,8 @@ extension GameboyAdvance {
         
         public var version: UInt8 = 0
         
+        public var romBanks: Int = 0
+        
         public var romSize: Int = 0
         
         public var ramSize: Int = 0

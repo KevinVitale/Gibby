@@ -120,7 +120,7 @@ extension GameboyClassic {
             return bytes[.romSize]
         }
         
-        private var romBanks: Int {
+        public var romBanks: Int {
             var romBanks = 2
             switch romSizeID {
             case 0...8:
