@@ -11,7 +11,9 @@ public struct GameboyClassicCartridge: Cartridge {
     private let bytes: Data
     
     public var header: Header {
-        return Header(bytes: self.bytes[Platform.headerRange])
+        let lowerBound = Int(Platform.headerRange.lowerBound)
+        let upperBound = Int(Platform.headerRange.upperBound)
+        return Header(bytes: self.bytes[lowerBound..<upperBound])
     }
     
     public var fileExtension: String {
