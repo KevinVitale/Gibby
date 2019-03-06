@@ -34,19 +34,28 @@ extension GameboyClassic {
         public var title: String {
             get {
                 var title = Data(bytes[.title])
+                var truncateSuffix = true
                 
-                // Portions of 'title' got re-purposed by BigN post-GBC
+                // Portions of 'title' got re-purposed by Nintendo post-GBC
                 if colorMode == .exclusive {
                     title = title[0..<11]
                 }
+                else if colorMode == .some {
+                    title = title[0..<15]
+                }
+                else {
+                    truncateSuffix = false
+                }
                 
-                var string = String(data: title.filter { $0 != 0 }, encoding: .ascii)!
+                let characterSet = CharacterSet.alphanumerics.union(.whitespaces).union(.punctuationCharacters)
+                var titleString  = String(String(data: title, encoding: .ascii)!.unicodeScalars.filter { characterSet.contains($0) })
+                let suffix       = String(self.manufacturer.unicodeScalars.filter { characterSet.contains($0) })
                 
-                if let range = string.range(of: self.manufacturer) {
-                    string.removeSubrange(range)
+                if truncateSuffix && titleString.hasSuffix(suffix) {
+                    titleString = String(titleString.dropLast(suffix.count))
                 }
 
-                return string
+                return titleString
             }
             set {
                 guard var title = String(newValue.prefix(16)).data(using: .ascii) else {
