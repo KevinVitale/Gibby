@@ -100,7 +100,7 @@
 		0A3DD4D221F2A9D600BCC6D4 = {
 			isa = PBXGroup;
 			children = (
-				0A3DD4FF21F2AA3100BCC6D4 /* Framework */,
+				0A3DD4FF21F2AA3100BCC6D4 /* Source */,
 				0A3DD50A21F2AA3100BCC6D4 /* Tests */,
 				0A3DD4FE21F2AA3100BCC6D4 /* Products */,
 			);
@@ -115,13 +115,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A3DD4FF21F2AA3100BCC6D4 /* Framework */ = {
+		0A3DD4FF21F2AA3100BCC6D4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				0AB2314922151CF0005E76E0 /* Platforms */,
 				0A3DD50021F2AA3100BCC6D4 /* Gibby.h */,
 			);
-			path = Framework;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		0A3DD50A21F2AA3100BCC6D4 /* Tests */ = {
@@ -420,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Framework/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Framework/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
