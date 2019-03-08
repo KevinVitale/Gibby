@@ -1,7 +1,7 @@
 import Foundation
 
 extension GameboyAdvance {
-    public struct Header: PlatformHeader {
+    public struct Header: Gibby.Header {
         public typealias Platform = GameboyAdvance.Cartridge.Platform
         
         private var bytes: Data

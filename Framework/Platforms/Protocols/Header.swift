@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol PlatformHeader: PlatformMemory, CustomDebugStringConvertible {
+public protocol Header: PlatformMemory, CustomDebugStringConvertible {
     var entryPoint:         Data    { get set }
     var logo:               Data    { get set }
     var title:              String  { get set }
@@ -14,7 +14,7 @@ public protocol PlatformHeader: PlatformMemory, CustomDebugStringConvertible {
         Platform.AddressSpace       { get }
 }
 
-extension PlatformHeader {
+extension Header {
     public var debugDescription: String {
         return """
         |-------------------------------------|
@@ -32,7 +32,7 @@ extension PlatformHeader {
     }
 }
 
-extension PlatformHeader {
+extension Header {
     public var isLogoValid: Bool {
         return Platform.validate(logo: logo)
     }
