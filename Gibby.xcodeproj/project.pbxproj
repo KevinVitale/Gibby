@@ -10,7 +10,7 @@
 		0A108BB02217858600A12FA1 /* GameboyAdvanceCartridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A108BAF2217858600A12FA1 /* GameboyAdvanceCartridge.swift */; };
 		0A108BB222178D6200A12FA1 /* GameboyClassicHeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A108BB122178D6200A12FA1 /* GameboyClassicHeaderSection.swift */; };
 		0A3DD50721F2AA3100BCC6D4 /* Gibby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */; };
-		0A3DD50E21F2AA3100BCC6D4 /* Gibby_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A3DD50E21F2AA3100BCC6D4 /* Gibby.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3DD50021F2AA3100BCC6D4 /* Gibby.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3DD51721F2AAB600BCC6D4 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */; };
 		0A80727A2208A4AC004EB386 /* ExternalHardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8072792208A4AC004EB386 /* ExternalHardware.swift */; };
 		0A80727C2208A679004EB386 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80727B2208A679004EB386 /* Configuration.swift */; };
@@ -42,7 +42,7 @@
 		0A108BAF2217858600A12FA1 /* GameboyAdvanceCartridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyAdvanceCartridge.swift; sourceTree = "<group>"; };
 		0A108BB122178D6200A12FA1 /* GameboyClassicHeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicHeaderSection.swift; sourceTree = "<group>"; };
 		0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gibby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gibby_macOS.h; sourceTree = "<group>"; };
+		0A3DD50021F2AA3100BCC6D4 /* Gibby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gibby.h; sourceTree = "<group>"; };
 		0A3DD50621F2AA3100BCC6D4 /* Gibby-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gibby-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3DD50B21F2AA3100BCC6D4 /* GameboyClassicConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicConfigurationTests.swift; sourceTree = "<group>"; };
 		0A3DD51621F2AAB600BCC6D4 /* MemoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 		0A3DD4D221F2A9D600BCC6D4 = {
 			isa = PBXGroup;
 			children = (
-				0A3DD4FF21F2AA3100BCC6D4 /* Gibby-macOS */,
-				0A3DD50A21F2AA3100BCC6D4 /* Gibby-macOSTests */,
+				0A3DD4FF21F2AA3100BCC6D4 /* Framework */,
+				0A3DD50A21F2AA3100BCC6D4 /* Tests */,
 				0A3DD4FE21F2AA3100BCC6D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,21 +115,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A3DD4FF21F2AA3100BCC6D4 /* Gibby-macOS */ = {
+		0A3DD4FF21F2AA3100BCC6D4 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
 				0AB2314922151CF0005E76E0 /* Platforms */,
-				0A3DD50021F2AA3100BCC6D4 /* Gibby_macOS.h */,
+				0A3DD50021F2AA3100BCC6D4 /* Gibby.h */,
 			);
-			path = "Gibby-macOS";
+			path = Framework;
 			sourceTree = "<group>";
 		};
-		0A3DD50A21F2AA3100BCC6D4 /* Gibby-macOSTests */ = {
+		0A3DD50A21F2AA3100BCC6D4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				0AB2314B22151DA0005E76E0 /* PlatformTests */,
 			);
-			path = "Gibby-macOSTests";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		0A8072782208A475004EB386 /* Memory Controller */ = {
@@ -209,7 +209,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3DD50E21F2AA3100BCC6D4 /* Gibby_macOS.h in Headers */,
+				0A3DD50E21F2AA3100BCC6D4 /* Gibby.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Gibby-macOS/Info.plist";
+				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Gibby-macOS/Info.plist";
+				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -574,7 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Gibby-macOSTests/Info.plist";
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -642,7 +642,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Gibby-macOSTests/Info.plist";
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
