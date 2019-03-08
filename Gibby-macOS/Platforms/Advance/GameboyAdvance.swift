@@ -18,7 +18,7 @@ public final class GameboyAdvance: Platform {
     public typealias AddressSpace = UInt32
     
     public static var headerRange: Range<UInt32> {
-        return 0x08000000..<0x080000C0
+        return 0x0000..<0x00C0
     }
 }
 
