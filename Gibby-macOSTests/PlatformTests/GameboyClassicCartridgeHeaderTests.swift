@@ -1,14 +1,6 @@
 import XCTest
 @testable import Gibby
 
-class GameboyClassicTests: XCTestCase {
-    override func setUp() {
-    }
-
-    override func tearDown() {
-    }
-}
-
 class GameboyClassicHeaderSectionTests: XCTestCase {
     func testSections() {
         let sections = (0x00..<0x50).compactMap { GameboyClassic.Header.Section(rawValue: $0) }
