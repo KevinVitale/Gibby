@@ -1,11 +1,10 @@
-import Foundation
-
-extension MemoryController {
+extension GameboyClassic.Cartridge {
     public struct ExternalHardware: OptionSet, CustomStringConvertible {
-        public let rawValue: Int
         public init(rawValue: Int) {
             self.rawValue = rawValue
         }
+        
+        public let rawValue: Int
         
         public static let ram       = ExternalHardware(rawValue: 1 << 0)
         public static let battery   = ExternalHardware(rawValue: 1 << 1)

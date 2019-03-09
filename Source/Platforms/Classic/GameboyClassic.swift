@@ -7,10 +7,9 @@ public final class GameboyClassic: Platform {
         0xBB, 0xBB, 0x67, 0x63, 0x6E, 0x0E, 0xEC, 0xCC, 0xDD, 0xDC, 0x99, 0x9F, 0xBB, 0xB9, 0x33, 0x3E
         ])
     
-    public typealias Cartridge     = GameboyClassicCartridge
     public typealias AddressSpace  = UInt16
     
-    public static var headerRange: Range<UInt16> {
+    public static var headerRange: Range<AddressSpace> {
         return 0x100..<0x150
     }
 }

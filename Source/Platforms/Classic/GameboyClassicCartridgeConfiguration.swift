@@ -1,22 +1,5 @@
-import Foundation
-
-extension MemoryController {
+extension GameboyClassic.Cartridge {
     public enum Configuration: Codable, RawRepresentable, CustomDebugStringConvertible, Equatable {
-        case rom(ram: Bool, battery: Bool)
-        case one(ram: Bool, battery: Bool)
-        case two(battery: Bool)
-        case mmm1(ram: Bool, battery: Bool)
-        case three(ram: Bool, battery: Bool, timer: Bool)
-        case five(ram: Bool, battery: Bool, rumble: Bool)
-        case six
-        case seven
-        case camera
-        case tama5
-        case huc1
-        case huc3
-        
-        case unknown(value: UInt8)
-        
         public init(rawValue: UInt8) {
             switch rawValue {
             case 0x00: self = .rom(ram: false,  battery: false)
@@ -60,6 +43,21 @@ extension MemoryController {
                 self = .unknown(value: rawValue)
             }
         }
+        
+        case rom(ram: Bool, battery: Bool)
+        case one(ram: Bool, battery: Bool)
+        case two(battery: Bool)
+        case mmm1(ram: Bool, battery: Bool)
+        case three(ram: Bool, battery: Bool, timer: Bool)
+        case five(ram: Bool, battery: Bool, rumble: Bool)
+        case six
+        case seven
+        case camera
+        case tama5
+        case huc1
+        case huc3
+        
+        case unknown(value: UInt8)
         
         public var rawValue: UInt8 {
             switch self {
@@ -262,3 +260,4 @@ extension MemoryController {
         }
     }
 }
+

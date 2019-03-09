@@ -14,34 +14,133 @@ public final class GameboyAdvance: Platform {
         0xD6, 0x25, 0xE4, 0x8B, 0x38, 0x0A, 0xAC, 0x72, 0x21, 0xD4, 0xF8, 0x07
         ])
     
-    public typealias Cartridge = GameboyAdvanceCatridge
     public typealias AddressSpace = UInt32
     
-    public static var headerRange: Range<UInt32> {
+    public static var headerRange: Range<AddressSpace> {
         return 0x0000..<0x00C0
     }
 }
 
-// https://problemkaputt.de/gbatek.htm#gbacartridgeheader
-public struct GameboyAdvanceCatridge: Cartridge {
-    public init(bytes: Data) {
-        self.bytes = bytes
-    }
-    
-    public typealias Platform = GameboyAdvance
-    public typealias Header = Platform.Header
-    
-    private let bytes: Data
-    
-    public var header: Header {
-        return Header(bytes: self.bytes[Platform.headerRange])
-    }
-    
-    public var fileExtension: String {
-        return "gba"
-    }
-    
-    public func write(to url: URL, options: Data.WritingOptions = []) throws {
-        try self.bytes.write(to: url, options: options)
+extension GameboyAdvance {
+    public struct Cartridge: Gibby.Cartridge {
+        public init(bytes: Data) {
+            self.bytes = bytes
+        }
+        
+        public typealias Platform = GameboyAdvance
+        public typealias Index    = Int
+        
+        private let bytes: Data
+        
+        public subscript(position: Index) -> Data.Element {
+            return bytes[Int(position)]
+        }
+        
+        public var startIndex: Index {
+            return Index(bytes.startIndex)
+        }
+        
+        public var endIndex: Index {
+            return Index(bytes.endIndex)
+        }
+        
+        public func index(after i: Index) -> Index {
+            return Index(bytes.index(after: Int(i)))
+        }
+
+        public var fileExtension: String {
+            return "gba"
+        }
+        
+        public func write(to url: URL, options: Data.WritingOptions = []) throws {
+            try self.bytes.write(to: url, options: options)
+        }
     }
 }
+
+extension GameboyAdvance.Cartridge {
+    // https://problemkaputt.de/gbatek.htm#gbacartridgeheader
+    public struct Header: Gibby.Header, PlatformMemory {
+        public init(bytes: Data) {
+            self.bytes = bytes
+        }
+        
+        public typealias Platform = GameboyAdvance
+        public typealias Index    = Platform.AddressSpace
+        
+        public subscript(position: Platform.AddressSpace) -> Data.Element {
+            return bytes[Int(position)]
+        }
+        
+        public var startIndex: Platform.AddressSpace {
+            return Platform.AddressSpace(bytes.startIndex)
+        }
+        
+        public var endIndex: Platform.AddressSpace {
+            return Platform.AddressSpace(bytes.endIndex)
+        }
+        
+        public func index(after i: Platform.AddressSpace) -> Platform.AddressSpace {
+            return Platform.AddressSpace(bytes.index(after: Int(i)))
+        }
+        
+        private let bytes: Data
+
+        public var entryPoint: Data {
+            return self[.boot]
+        }
+
+        public var logo: Data {
+            return self[.logo]
+        }
+        
+        public var title: String {
+            return String(data: self[.title], encoding: .ascii) ?? ""
+        }
+        
+        public let gameCode: String? = nil
+        
+        public let manufacturer: String = ""
+        
+        public let version: UInt8 = 0x00
+        
+        public let romSize: Int = 0
+        
+        public let romBanks: Int = 0
+        
+        public let ramSize: Int = 0
+        
+        public let headerChecksum: UInt8 = 0
+
+        public enum Section: GameboyAdvance.AddressSpace, HeaderSection {
+            case boot
+            case logo
+            case title
+            
+            public var rawValue: RawValue {
+                switch self {
+                case .boot:             return 0x00
+                case .logo:             return 0x04
+                case .title:            return 0xA0
+                }
+            }
+
+            public var size: Int {
+                switch self {
+                case .boot:             return 4
+                case .logo:             return 156
+                case .title:            return 12
+                }
+            }
+            
+            static var allSections: [Section] {
+                return [
+                    .boot
+                    , .logo
+                    , .title
+                ]
+            }
+        }
+    }
+}
+

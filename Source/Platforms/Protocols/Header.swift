@@ -1,17 +1,24 @@
 import Foundation
 
 public protocol Header: PlatformMemory, CustomDebugStringConvertible {
-    var entryPoint:         Data    { get set }
-    var logo:               Data    { get set }
-    var title:              String  { get set }
-    var gameCode:           String? { get set }
-    var manufacturer:       String  { get set }
-    var version:            UInt8   { get set }
-    var romSize:            Int     { get     }
-    var romBanks:           Int     { get     }
-    var ramSize:            Int     { get     }
-    var headerChecksum:
-        Platform.AddressSpace       { get }
+    associatedtype Section: HeaderSection where Section.RawValue == Self.Platform.AddressSpace
+
+    var entryPoint:         Data    { get }
+    var logo:               Data    { get }
+    var title:              String  { get }
+    var gameCode:           String? { get }
+    var manufacturer:       String  { get }
+    var version:            UInt8   { get }
+    var romSize:            Int     { get }
+    var romBanks:           Int     { get }
+    var ramSize:            Int     { get }
+    var headerChecksum:     UInt8   { get }
+}
+
+extension Header where Self.Index == Platform.AddressSpace {
+    public subscript(_ section: Section) -> Data {
+        return Data(self[section.range(offsetBy: Int(self.startIndex))])
+    }
 }
 
 extension Header {

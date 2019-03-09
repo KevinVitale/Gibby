@@ -2,13 +2,14 @@ import XCTest
 @testable import Gibby
 
 class GameboyClassicHeaderSectionTests: XCTestCase {
+    typealias Header = GameboyClassic.Cartridge.Header
     func testSections() {
-        let sections = (0x00..<0x50).compactMap { GameboyClassic.Header.Section(rawValue: $0) }
-        XCTAssertEqual(sections.count, GameboyClassic.Header.Section.allSections.count)
+        let sections = (0x00..<0x50).compactMap { Header.Section(rawValue: $0) }
+        XCTAssertEqual(sections.count, Header.Section.allSections.count)
     }
     
     func testRanges() {
-        for section in GameboyClassic.Header.Section.allSections {
+        for section in Header.Section.allSections {
             switch section {
             case .boot:
                 XCTAssertEqual(section.range().count, 4)
@@ -57,5 +58,9 @@ class GameboyClassicHeaderSectionTests: XCTestCase {
                 XCTAssertEqual(section.range().upperBound, 0x50)
             }
         }
+    }
+    
+    func testSectionBoot() {
+        // var header = Header(bytes: Data([0x00, 0xC3, 0x50, 0x01]))
     }
 }
