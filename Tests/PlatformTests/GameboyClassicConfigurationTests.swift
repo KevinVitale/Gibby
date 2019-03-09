@@ -1,7 +1,7 @@
 import XCTest
 import Gibby
 
-class MemomryControllerTests: XCTestCase {
+class MemoryControllerTests: XCTestCase {
     func testAllValues() {
         XCTAssertEqual(MemoryController.Configuration.allControllers.count, 28)
     }
