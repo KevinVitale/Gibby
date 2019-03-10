@@ -108,7 +108,9 @@ extension GameboyAdvance.Cartridge {
         
         public let romBanks: Int = 0
         
-        public let ramSize: Int = 0
+        public let ramBanks: Int = 0
+        
+        public let ramBankSize: Int = 0
         
         public let headerChecksum: UInt8 = 0
 

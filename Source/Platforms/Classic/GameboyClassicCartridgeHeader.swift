@@ -115,12 +115,46 @@ extension GameboyClassic.Cartridge {
             return 0x4000 * romBanks
         }
         
-        public var ramSizeID: UInt8 {
+        private var ramSizeID: UInt8 {
             return self[.ramSize].first ?? 0xFF
         }
+
+        public var ramBanks: Int {
+            if case .two = configuration {
+                return 1
+            }
+            switch ramSizeID {
+            case 0x00:
+                return 0
+            case 0x01:
+                return 1
+            case 0x02:
+                return 1
+            case 0x03:
+                return 4
+            case 0x04:
+                return 16
+            case 0x05:
+                return 8
+            default:
+                return 0
+            }
+        }
         
-        public var ramSize: Int {
-            return 0
+        public var ramBankSize: Int {
+            if case .two = configuration {
+                return 0x200
+            }
+            switch ramSizeID {
+            case 0x00:
+                return 0
+            case 0x01:
+                return 0x0800
+            case 0x02...0x05:
+                return 0x2000
+            default:
+                return 0
+            }
         }
         
         public var region: Region {

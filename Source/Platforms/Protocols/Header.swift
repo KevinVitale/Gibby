@@ -11,8 +11,15 @@ public protocol Header: PlatformMemory, CustomDebugStringConvertible {
     var version:            UInt8   { get }
     var romSize:            Int     { get }
     var romBanks:           Int     { get }
-    var ramSize:            Int     { get }
+    var ramBankSize:        Int     { get }
+    var ramBanks:           Int     { get }
     var headerChecksum:     UInt8   { get }
+}
+
+extension Header {
+    public var ramSize: Int {
+        return ramBankSize * ramBanks
+    }
 }
 
 extension Header where Self.Index == Platform.AddressSpace {
