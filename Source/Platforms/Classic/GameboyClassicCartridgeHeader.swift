@@ -76,7 +76,7 @@ extension GameboyClassic.Cartridge {
             var titleString  = String(String(data: title, encoding: .ascii)!.unicodeScalars.filter { characterSet.contains($0) })
             let suffix       = String(self.manufacturer.unicodeScalars.filter { characterSet.contains($0) })
             
-            if truncateSuffix && titleString.hasSuffix(suffix) {
+            if truncateSuffix && titleString.hasSuffix(suffix), suffix.count >= 4 {
                 titleString = String(titleString.dropLast(suffix.count))
             }
             
@@ -88,7 +88,11 @@ extension GameboyClassic.Cartridge {
         }
         
         public var manufacturer: String {
-            return String(data: self[.manufacturer], encoding: .ascii) ?? ""
+            let characterSet = CharacterSet.alphanumerics.union(.whitespaces).union(.punctuationCharacters)
+            guard let manufacturer = String(data: self[.manufacturer], encoding: .ascii)?.unicodeScalars.filter({ characterSet.contains($0) }), manufacturer.count >= 4 else {
+                    return ""
+            }
+            return String(manufacturer)
         }
         
         public var licensee: String {
