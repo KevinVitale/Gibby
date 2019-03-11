@@ -9,10 +9,33 @@ extension GameboyClassic.Cartridge {
         
         private let bytes: Data
         
+        // MARK: - Debug Description -
+        public var debugDescription: String {
+            return """
+            |-------------------------------------|
+            |\t ENTRY POINT: \(entryPoint) (\(entryPoint.map { String($0, radix: 16, uppercase: true) }.joined(separator: " ")))
+            |\t  LOGO VALID: \(isLogoValid)
+            |\t       TITLE: \(title)
+            |\tMANUFACTURER: \(manufacturer)
+            |\t    LICENSEE: \(licensee)
+            |\tSGB. SUPPORT: \(superGameboySupported)
+            |\t      REGION: \(region)
+            |\t     VERSION: \(version)
+            |\tOLD LICENSEE: \(legacyLicensee)
+            |\t    ROM SIZE: \(romSize)
+            |\t    RAM SIZE: \(ramSize)
+            |\tHDR CHECKSUM: \(headerChecksum)
+            |\tROM CHECKSUM: \(romChecksum)
+            |-------------------------------------|
+            """
+        }
+        
+        // MARK: - Subscript -
         public subscript(position: Index) -> Data.Element {
             return bytes[Int(position)]
         }
         
+        // MARK: - Indices -
         public var startIndex: Index {
             return Index(bytes.startIndex)
         }
@@ -25,6 +48,7 @@ extension GameboyClassic.Cartridge {
             return Index(bytes.index(after: Int(i)))
         }
         
+        // MARK: - Properties -
         public var entryPoint: Data {
             return self[.boot]
         }
