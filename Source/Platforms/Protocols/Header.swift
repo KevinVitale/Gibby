@@ -9,14 +9,18 @@ public protocol Header: PlatformMemory, CustomDebugStringConvertible {
     var gameCode:           String? { get }
     var manufacturer:       String  { get }
     var version:            UInt8   { get }
-    var romSize:            Int     { get }
     var romBanks:           Int     { get }
-    var ramBankSize:        Int     { get }
+    var romBankSize:        Int     { get }
     var ramBanks:           Int     { get }
+    var ramBankSize:        Int     { get }
     var headerChecksum:     UInt8   { get }
 }
 
 extension Header {
+    public var romSize: Int {
+        return romBankSize * romBanks
+    }
+    
     public var ramSize: Int {
         return ramBankSize * ramBanks
     }

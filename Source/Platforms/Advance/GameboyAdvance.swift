@@ -104,9 +104,9 @@ extension GameboyAdvance.Cartridge {
         
         public let version: UInt8 = 0x00
         
-        public let romSize: Int = 0
-        
         public let romBanks: Int = 0
+        
+        public let romBankSize: Int = 0
         
         public let ramBanks: Int = 0
         

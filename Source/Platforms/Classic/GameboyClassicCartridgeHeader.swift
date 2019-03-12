@@ -139,8 +139,8 @@ extension GameboyClassic.Cartridge {
             return romBanks
         }
         
-        public var romSize: Int {
-            return 0x4000 * romBanks
+        public var romBankSize: Int {
+            return 0x4000
         }
         
         private var ramSizeID: UInt8 {
