@@ -24,6 +24,9 @@ extension Header {
 
 extension Header where Self.Index == Platform.AddressSpace {
     public subscript(_ section: Section) -> Data {
+        guard self.isEmpty == false else {
+            return Data()
+        }
         return Data(self[section.range(offsetBy: Int(self.startIndex))])
     }
 }
