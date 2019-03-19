@@ -12,21 +12,28 @@ extension GameboyClassic.Cartridge {
         // MARK: - Debug Description -
         public var debugDescription: String {
             return """
-            |-------------------------------------|
+            |--------------------------------------------|
+            |  CONFIGURATION: \(configuration)
+            |--------------------------------------------|
             |\t ENTRY POINT: \(entryPoint) (\(entryPoint.map { String($0, radix: 16, uppercase: true) }.joined(separator: " ")))
+            |--------------------------------------------|
             |\t  LOGO VALID: \(isLogoValid)
+            |--------------------------------------------|
             |\t       TITLE: \(title)
+            |--------------------------------------------|
             |\tMANUFACTURER: \(manufacturer)
             |\t    LICENSEE: \(licensee)
             |\tSGB. SUPPORT: \(superGameboySupported)
             |\t      REGION: \(region)
             |\t     VERSION: \(version)
             |\tOLD LICENSEE: \(legacyLicensee)
+            |--------------------------------------------|
             |\t    ROM SIZE: \(romSize)
             |\t    RAM SIZE: \(ramSize)
+            |--------------------------------------------|
             |\tHDR CHECKSUM: \(headerChecksum)
             |\tROM CHECKSUM: \(romChecksum)
-            |-------------------------------------|
+            |--------------------------------------------|
             """
         }
         
