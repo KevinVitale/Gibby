@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A3DD50721F2AA3100BCC6D4 /* Gibby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3DD4FD21F2AA3100BCC6D4 /* Gibby.framework */; };
 		0A3DD50E21F2AA3100BCC6D4 /* Gibby.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3DD50021F2AA3100BCC6D4 /* Gibby.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A639D3122529E2A006C7CAA /* GameboyClassicCartridgeRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A639D3022529E2A006C7CAA /* GameboyClassicCartridgeRegion.swift */; };
 		0AB231442214CA84005E76E0 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231432214CA84005E76E0 /* Platform.swift */; };
 		0AB231462214D42F005E76E0 /* GameboyClassic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231452214D42F005E76E0 /* GameboyClassic.swift */; };
 		0AB231482214D459005E76E0 /* GameboyAdvance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB231472214D459005E76E0 /* GameboyAdvance.swift */; };
@@ -41,6 +42,7 @@
 		0A3DD50021F2AA3100BCC6D4 /* Gibby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gibby.h; sourceTree = "<group>"; };
 		0A3DD50621F2AA3100BCC6D4 /* Gibby-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gibby-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3DD50B21F2AA3100BCC6D4 /* GameboyClassicConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicConfigurationTests.swift; sourceTree = "<group>"; };
+		0A639D3022529E2A006C7CAA /* GameboyClassicCartridgeRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassicCartridgeRegion.swift; sourceTree = "<group>"; };
 		0AB231432214CA84005E76E0 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		0AB231452214D42F005E76E0 /* GameboyClassic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyClassic.swift; sourceTree = "<group>"; };
 		0AB231472214D459005E76E0 /* GameboyAdvance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameboyAdvance.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				0AC59C452234493D0040BAA4 /* GameboyClassicCartridgeExternalHardware.swift */,
 				0AC59C392234458D0040BAA4 /* GameboyClassicCartridgeHeader.swift */,
 				0AC59C3B223445C00040BAA4 /* GameboyClassicCartridgeHeaderSection.swift */,
+				0A639D3022529E2A006C7CAA /* GameboyClassicCartridgeRegion.swift */,
 			);
 			path = Classic;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				0AC59C3A2234458D0040BAA4 /* GameboyClassicCartridgeHeader.swift in Sources */,
 				0AB2316A2215B9CB005E76E0 /* Cartridge.swift in Sources */,
 				0AC59C3C223445C00040BAA4 /* GameboyClassicCartridgeHeaderSection.swift in Sources */,
+				0A639D3122529E2A006C7CAA /* GameboyClassicCartridgeRegion.swift in Sources */,
 				0AC59C3E2234460E0040BAA4 /* GameboyClassicCartridgeColorMode.swift in Sources */,
 				0AC59C442234490B0040BAA4 /* GameboyClassicCartridgeConfiguration.swift in Sources */,
 				0AB231442214CA84005E76E0 /* Platform.swift in Sources */,
