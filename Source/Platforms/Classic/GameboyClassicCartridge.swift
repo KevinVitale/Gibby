@@ -24,10 +24,6 @@ extension GameboyClassic {
         public func index(after i: Index) -> Index {
             return Index(bytes.index(after: Int(i)))
         }
-
-        public func write(to url: URL, options: Data.WritingOptions = []) throws {
-            try self.bytes.write(to: url, options: options)
-        }
     }
 }
 
