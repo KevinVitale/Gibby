@@ -14,8 +14,9 @@ public final class GameboyAdvance: Platform {
         0xD6, 0x25, 0xE4, 0x8B, 0x38, 0x0A, 0xAC, 0x72, 0x21, 0xD4, 0xF8, 0x07
         ])
     
-    public typealias AddressSpace = UInt32
-    
+    public typealias AddressSpace  = UInt32
+    public typealias HeaderSection = GameboyAdvanceHeaderSection
+
     public static var headerRange: Range<AddressSpace> {
         return 0x0000..<0x00C0
     }
@@ -48,13 +49,58 @@ extension GameboyAdvance {
             return Index(bytes.index(after: Int(i)))
         }
 
-        public var fileExtension: String {
-            return "gba"
-        }
-        
         public func write(to url: URL, options: Data.WritingOptions = []) throws {
             try self.bytes.write(to: url, options: options)
         }
+    }
+}
+
+extension Cartridge where Platform == GameboyAdvance {
+    public var fileExtension: String {
+        return "gba"
+    }
+}
+
+extension Header where Platform == GameboyAdvance, Index == Platform.AddressSpace {
+    
+    public var debugDescription: String {
+        return """
+        |-------------------------------------|
+        |\t ENTRY POINT: \(entryPoint) (\(entryPoint.map { String($0, radix: 16, uppercase: true) }.joined(separator: " ")))
+        |\t  LOGO VALID: \(isLogoValid)
+        |\t       TITLE: \(title)
+        |\t    ROM SIZE: \(romSize)
+        |\t    RAM SIZE: \(ramSize)
+        |-------------------------------------|
+        """
+    }
+    
+    public var entryPoint: Data {
+        return self[.boot]
+    }
+    
+    public var logo: Data {
+        return self[.logo]
+    }
+    
+    public var title: String {
+        return String(data: self[.title], encoding: .ascii) ?? ""
+    }
+    
+    public var romBanks: Int {
+        return 0
+    }
+    
+    public var romBankSize: Int {
+        return 0
+    }
+    
+    public var ramBanks: Int {
+        return 0
+    }
+    
+    public var ramBankSize: Int {
+        return 0
     }
 }
 
@@ -85,64 +131,38 @@ extension GameboyAdvance.Cartridge {
         }
         
         private let bytes: Data
-
-        public var entryPoint: Data {
-            return self[.boot]
-        }
-
-        public var logo: Data {
-            return self[.logo]
-        }
-        
-        public var title: String {
-            return String(data: self[.title], encoding: .ascii) ?? ""
-        }
-        
-        public let gameCode: String? = nil
-        
-        public let manufacturer: String = ""
-        
-        public let version: UInt8 = 0x00
-        
-        public let romBanks: Int = 0
-        
-        public let romBankSize: Int = 0
-        
-        public let ramBanks: Int = 0
-        
-        public let ramBankSize: Int = 0
-        
-        public let headerChecksum: UInt8 = 0
-
-        public enum Section: GameboyAdvance.AddressSpace, HeaderSection {
-            case boot
-            case logo
-            case title
-            
-            public var rawValue: RawValue {
-                switch self {
-                case .boot:             return 0x00
-                case .logo:             return 0x04
-                case .title:            return 0xA0
-                }
-            }
-
-            public var size: Int {
-                switch self {
-                case .boot:             return 4
-                case .logo:             return 156
-                case .title:            return 12
-                }
-            }
-            
-            static var allSections: [Section] {
-                return [
-                    .boot
-                    , .logo
-                    , .title
-                ]
-            }
-        }
     }
 }
 
+
+public enum GameboyAdvanceHeaderSection: GameboyAdvanceHeaderSection.Platform.AddressSpace, HeaderSection {
+    public typealias Platform = GameboyAdvance
+    
+    case boot
+    case logo
+    case title
+    
+    public var rawValue: UInt32 {
+        switch self {
+        case .boot:             return 0x00
+        case .logo:             return 0x04
+        case .title:            return 0xA0
+        }
+    }
+    
+    public var size: Int {
+        switch self {
+        case .boot:             return 4
+        case .logo:             return 156
+        case .title:            return 12
+        }
+    }
+    
+    static var allSections: [GameboyAdvanceHeaderSection] {
+        return [
+              .boot
+            , .logo
+            , .title
+        ]
+    }
+}

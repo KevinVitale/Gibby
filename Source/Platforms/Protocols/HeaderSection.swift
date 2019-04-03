@@ -1,6 +1,7 @@
 import Foundation
 
-public protocol HeaderSection: RawRepresentable {
+public protocol HeaderSection: RawRepresentable where Self.RawValue == Platform.AddressSpace {
+    associatedtype Platform: Gibby.Platform
     var size: Int { get }
 }
 

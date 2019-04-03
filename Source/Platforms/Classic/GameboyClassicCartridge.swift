@@ -24,19 +24,37 @@ extension GameboyClassic {
         public func index(after i: Index) -> Index {
             return Index(bytes.index(after: Int(i)))
         }
-        
-        public var fileExtension: String {
-            switch header.colorMode {
-            case .unknown:
-                return "gb"
-            default:
-                return "gbc"
-            }
-        }
-        
+
         public func write(to url: URL, options: Data.WritingOptions = []) throws {
             try self.bytes.write(to: url, options: options)
         }
     }
 }
 
+extension Cartridge where Platform == GameboyClassic, Header.Index == Platform.AddressSpace {
+    public var fileExtension: String {
+        switch header.colorMode {
+        case .unknown:
+            return "gb"
+        default:
+            return "gbc"
+        }
+    }
+}
+
+extension Cartridge where Platform == GameboyClassic {
+    public func romBank(at location: Int) -> Self.SubSequence? {
+        guard self.isEmpty == false, (0..<header.romBanks).contains(location) else {
+            return nil
+        }
+        
+        let lowerBound   = Self.Index(0x4000 * location)
+        let bytesInRange = lowerBound..<lowerBound.advanced(by: header.romBankSize)
+        let bytesRange   = self.startIndex..<self.endIndex
+
+        guard bytesRange.overlaps(bytesInRange) else {
+            return nil
+        }
+        return self[bytesInRange]
+    }
+}
