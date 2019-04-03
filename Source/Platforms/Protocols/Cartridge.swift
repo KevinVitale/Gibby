@@ -2,8 +2,6 @@ import Foundation
 
 public protocol Cartridge: PlatformMemory {
     associatedtype Header: Gibby.Header where Header.Platform == Self.Platform
-    
-    var fileExtension: String { get }
 }
 
 extension Cartridge {
