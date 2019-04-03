@@ -1,4 +1,4 @@
-public enum GameboyClassicHeaderSection: GameboyClassicHeaderSection.Platform.AddressSpace, HeaderSection {
+public enum GameboyClassicHeaderSection: GameboyClassicHeaderSection.Platform.AddressSpace, PlatformMemorySection {
     public typealias Platform = GameboyClassic
     
     case boot

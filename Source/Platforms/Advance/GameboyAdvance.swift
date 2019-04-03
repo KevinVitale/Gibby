@@ -135,7 +135,7 @@ extension GameboyAdvance.Cartridge {
 }
 
 
-public enum GameboyAdvanceHeaderSection: GameboyAdvanceHeaderSection.Platform.AddressSpace, HeaderSection {
+public enum GameboyAdvanceHeaderSection: GameboyAdvanceHeaderSection.Platform.AddressSpace, PlatformMemorySection {
     public typealias Platform = GameboyAdvance
     
     case boot
