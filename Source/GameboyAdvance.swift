@@ -61,7 +61,7 @@ extension Cartridge where Platform == GameboyAdvance {
     }
 }
 
-extension Header where Platform == GameboyAdvance, Index == Platform.AddressSpace {
+extension Header where Platform == GameboyAdvance {
     
     public var debugDescription: String {
         return """

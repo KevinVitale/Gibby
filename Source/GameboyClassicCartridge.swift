@@ -27,7 +27,7 @@ extension GameboyClassic {
     }
 }
 
-extension Cartridge where Platform == GameboyClassic, Header.Index == Platform.AddressSpace {
+extension Cartridge where Platform == GameboyClassic {
     public var fileExtension: String {
         switch header.colorMode {
         case .unknown:

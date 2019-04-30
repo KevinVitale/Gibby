@@ -1,4 +1,4 @@
-extension Header where Platform == GameboyClassic, Index == Platform.AddressSpace {
+extension Header where Platform == GameboyClassic {
     public typealias Configuration = Platform.Cartridge.Configuration
     public typealias Region        = Platform.Cartridge.Region
     public typealias ColorMode     = Platform.Cartridge.ColorMode

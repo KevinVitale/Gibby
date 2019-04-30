@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol Header: PlatformMemory, CustomDebugStringConvertible {
+public protocol Header: PlatformMemory, CustomDebugStringConvertible where Self.Index == Self.Platform.AddressSpace {
     var logo:        Data    { get }
     var title:       String  { get }
     var romBanks:    Int     { get }
@@ -19,7 +19,7 @@ extension Header {
     }
 }
 
-extension Header where Self.Index == Platform.AddressSpace {
+extension Header {
     public subscript(_ section: Platform.HeaderSection) -> Data  {
         guard self.isEmpty == false else {
             return Data()
