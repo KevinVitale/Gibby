@@ -55,12 +55,6 @@ extension GameboyAdvance {
     }
 }
 
-extension Cartridge where Platform == GameboyAdvance {
-    public var fileExtension: String {
-        return "gba"
-    }
-}
-
 extension Header where Platform == GameboyAdvance {
     
     public var debugDescription: String {

@@ -28,17 +28,6 @@ extension GameboyClassic {
 }
 
 extension Cartridge where Platform == GameboyClassic {
-    public var fileExtension: String {
-        switch header.colorMode {
-        case .unknown:
-            return "gb"
-        default:
-            return "gbc"
-        }
-    }
-}
-
-extension Cartridge where Platform == GameboyClassic {
     public func romBank(at location: Int) -> Self.SubSequence? {
         guard self.isEmpty == false, (0..<header.romBanks).contains(location) else {
             return nil

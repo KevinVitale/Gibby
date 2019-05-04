@@ -1,6 +1,24 @@
 import Foundation
 
 public protocol Cartridge: PlatformMemory {
+    var fileExtension: String { get }
+}
+
+extension Cartridge where Platform == GameboyClassic {
+    public var fileExtension: String {
+        switch header.colorMode {
+        case .unknown:
+            return "gb"
+        default:
+            return "gbc"
+        }
+    }
+}
+
+extension Cartridge where Platform == GameboyAdvance {
+    public var fileExtension: String {
+        return "gba"
+    }
 }
 
 extension Cartridge {
