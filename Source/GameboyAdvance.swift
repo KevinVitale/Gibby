@@ -69,8 +69,6 @@ extension Header where Platform == GameboyAdvance {
         |\t ENTRY POINT: \(entryPoint) (\(entryPoint.map { String($0, radix: 16, uppercase: true) }.joined(separator: " ")))
         |\t  LOGO VALID: \(isLogoValid)
         |\t       TITLE: \(title)
-        |\t    ROM SIZE: \(romSize)
-        |\t    RAM SIZE: \(ramSize)
         |-------------------------------------|
         """
     }

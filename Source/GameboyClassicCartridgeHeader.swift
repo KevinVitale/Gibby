@@ -94,6 +94,10 @@ extension Header where Platform == GameboyClassic {
         return 0x4000
     }
     
+    public var romSize: Int {
+        return romBankSize * romBanks
+    }
+    
     private var ramSizeID: UInt8 {
         return self[.ramSize].first ?? 0xFF
     }
@@ -134,6 +138,10 @@ extension Header where Platform == GameboyClassic {
         default:
             return 0
         }
+    }
+    
+    public var ramSize: Int {
+        return ramBankSize * ramBanks
     }
     
     public var region: Region {
