@@ -111,7 +111,7 @@ extension GameboyAdvance.Cartridge {
 }
 
 
-enum GameboyAdvanceHeaderSection: GameboyAdvanceHeaderSection.Platform.AddressSpace, PlatformMemorySection {
+enum GameboyAdvanceHeaderSection: UInt32, PlatformMemorySection {
     typealias Platform = GameboyAdvance
     
     case boot
