@@ -78,22 +78,6 @@ extension Header where Platform == GameboyAdvance {
     public var title: String {
         return String(data: self[.title], encoding: .ascii) ?? ""
     }
-    
-    public var romBanks: Int {
-        return 0
-    }
-    
-    public var romBankSize: Int {
-        return 0
-    }
-    
-    public var ramBanks: Int {
-        return 0
-    }
-    
-    public var ramBankSize: Int {
-        return 0
-    }
 }
 
 extension GameboyAdvance.Cartridge {
