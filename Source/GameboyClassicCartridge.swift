@@ -44,7 +44,7 @@ extension Cartridge where Platform == GameboyClassic {
             return nil
         }
         
-        let lowerBound   = Self.Index(0x4000 * location)
+        let lowerBound   = Self.Index(header.romBankSize * location)
         let bytesInRange = lowerBound..<lowerBound.advanced(by: header.romBankSize)
         let bytesRange   = self.startIndex..<self.endIndex
 
