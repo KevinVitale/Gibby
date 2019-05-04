@@ -20,15 +20,6 @@ extension Header {
 }
 
 extension Header {
-    public subscript(_ section: Platform.HeaderSection) -> Data  {
-        guard self.isEmpty == false else {
-            return Data()
-        }
-        return Data(self[section.range(offsetBy: Int(self.startIndex))])
-    }
-}
-
-extension Header {
     public var isLogoValid: Bool {
         return Platform.validate(logo: logo)
     }

@@ -194,7 +194,7 @@ extension Header where Platform == GameboyClassic {
 }
 
 extension GameboyClassic.Cartridge {
-    public struct Header: Gibby.Header, PlatformMemory {
+    public struct Header: Gibby.Header {
         public init(bytes: Data) {
             self.bytes = bytes
         }

@@ -1,5 +1,5 @@
-public enum GameboyClassicHeaderSection: GameboyClassicHeaderSection.Platform.AddressSpace, PlatformMemorySection {
-    public typealias Platform = GameboyClassic
+enum GameboyClassicHeaderSection: GameboyClassicHeaderSection.Platform.AddressSpace, PlatformMemorySection {
+    typealias Platform = GameboyClassic
     
     case boot
     case logo
@@ -17,7 +17,7 @@ public enum GameboyClassicHeaderSection: GameboyClassicHeaderSection.Platform.Ad
     case headerChecksum
     case cartChecksum
 
-    public var rawValue: Platform.AddressSpace {
+    var rawValue: UInt16 {
         switch self {
         case .boot:             return 0x00
         case .logo:             return 0x04
@@ -37,7 +37,7 @@ public enum GameboyClassicHeaderSection: GameboyClassicHeaderSection.Platform.Ad
         }
     }
 
-    public var size: Int {
+    var size: Int {
         switch self {
         case .boot:             return 4
         case .logo:             return 48

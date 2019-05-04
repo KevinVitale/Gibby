@@ -14,10 +14,6 @@ public final class GameboyClassic: Platform {
     /// The platform's address range, defining address between: `0..<65535`.
     public typealias AddressSpace  = UInt16
     
-    /// The platform's header section subscript. Allows for typed subscripting
-    /// to ranges in the header memory space.
-    public typealias HeaderSection = GameboyClassicHeaderSection
-    
     /// The memory range which defines the platform's cartridge header.
     ///
     ///  [Cartridge Header]: http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header

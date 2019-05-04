@@ -15,7 +15,6 @@ public final class GameboyAdvance: Platform {
         ])
     
     public typealias AddressSpace  = UInt32
-    public typealias HeaderSection = GameboyAdvanceHeaderSection
 
     public static var headerRange: Range<AddressSpace> {
         return 0x0000..<0x00C0
@@ -106,7 +105,7 @@ extension Header where Platform == GameboyAdvance {
 
 extension GameboyAdvance.Cartridge {
     // https://problemkaputt.de/gbatek.htm#gbacartridgeheader
-    public struct Header: Gibby.Header, PlatformMemory {
+    public struct Header: Gibby.Header {
         public init(bytes: Data) {
             self.bytes = bytes
         }
@@ -135,14 +134,14 @@ extension GameboyAdvance.Cartridge {
 }
 
 
-public enum GameboyAdvanceHeaderSection: GameboyAdvanceHeaderSection.Platform.AddressSpace, PlatformMemorySection {
-    public typealias Platform = GameboyAdvance
+enum GameboyAdvanceHeaderSection: GameboyAdvanceHeaderSection.Platform.AddressSpace, PlatformMemorySection {
+    typealias Platform = GameboyAdvance
     
     case boot
     case logo
     case title
     
-    public var rawValue: UInt32 {
+    var rawValue: UInt32 {
         switch self {
         case .boot:             return 0x00
         case .logo:             return 0x04
@@ -150,7 +149,7 @@ public enum GameboyAdvanceHeaderSection: GameboyAdvanceHeaderSection.Platform.Ad
         }
     }
     
-    public var size: Int {
+    var size: Int {
         switch self {
         case .boot:             return 4
         case .logo:             return 156
