@@ -15,6 +15,7 @@ public final class GameboyAdvance: Platform {
         ])
     
     public typealias AddressSpace  = UInt32
+    public typealias Header = Cartridge.Header
 
     public static var headerRange: Range<AddressSpace> {
         return 0x0000..<0x00C0

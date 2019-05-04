@@ -13,6 +13,7 @@ public final class GameboyClassic: Platform {
     
     /// The platform's address range, defining address between: `0..<65535`.
     public typealias AddressSpace  = UInt16
+    public typealias Header = Cartridge.Header
     
     /// The memory range which defines the platform's cartridge header.
     ///
