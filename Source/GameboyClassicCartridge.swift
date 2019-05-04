@@ -1,5 +1,5 @@
 extension GameboyClassic {
-    public struct Cartridge: Gibby.Cartridge, PlatformMemory {
+    public struct Cartridge: Gibby.Cartridge {
         public init(bytes: Data) {
             self.bytes = bytes
         }
