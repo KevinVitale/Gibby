@@ -167,6 +167,8 @@ extension GameboyClassic.Cartridge {
                 return true
             case .huc1:
                 return true
+            case .camera:
+                return true
             default:
                 return false
             }
@@ -189,6 +191,8 @@ extension GameboyClassic.Cartridge {
             case .seven:
                 return true
             case .huc1:
+                return true
+            case .camera:
                 return true
             default:
                 return false
