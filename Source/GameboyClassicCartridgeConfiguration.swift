@@ -256,9 +256,10 @@ extension GameboyClassic.Cartridge {
             if hasSensor  { type += "+\(ExternalHardware.sensor.description)" }
             if hasRumble  { type += "+\(ExternalHardware.rumble.description)" }
             if hasTimer   { type += "+\(ExternalHardware.timer.description)" }
-            if hasRAM && type != "MBC2"
+            if hasRAM && self != .camera && type != "MBC2"
             { type += "+\(ExternalHardware.ram.description)" }
-            if hasBattery { type += "+\(ExternalHardware.battery.description)" }
+            if hasBattery && self != .camera
+            { type += "+\(ExternalHardware.battery.description)" }
             
             return type
         }
