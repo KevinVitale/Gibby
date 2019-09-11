@@ -194,7 +194,7 @@ class MemoryControllerTests: XCTestCase {
                     guard case .camera = mbc else {
                         return XCTFail()
                     }
-                    XCTAssertEqual(mbc.hardware, [.camera])
+                    XCTAssertEqual(mbc.hardware, [.ram, .battery, .camera])
                     XCTAssertEqual(mbc.debugDescription, "POCKET CAMERA")
                     configsTested.fulfill()
                 case 0xFD:
