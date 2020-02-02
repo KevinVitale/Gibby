@@ -192,7 +192,9 @@ extension Header where Platform == GameboyClassic {
         |\tOLD LICENSEE: \(legacyLicensee)
         |--------------------------------------------|
         |\t    ROM SIZE: \(romSize)
+        |\t          - : 0x\(String(romBankSize, radix: 16, uppercase: true)) x \(romBanks) banks
         |\t    RAM SIZE: \(ramSize)
+        |\t          - : 0x\(String(ramBankSize, radix: 16, uppercase: true)) x \(ramBanks) banks
         |--------------------------------------------|
         |\tHDR CHECKSUM: \(headerChecksum)
         |\tROM CHECKSUM: \(romChecksum)

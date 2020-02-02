@@ -2,7 +2,7 @@ import XCTest
 @testable import Gibby
 
 class GameboyClassicHeaderSectionTests: XCTestCase {
-    typealias HeaderSection = GameboyClassic.HeaderSection
+    typealias HeaderSection = GameboyClassicHeaderSection
     
     func testSections() {
         let sections = (0x00..<0x50).compactMap { HeaderSection(rawValue: $0) }

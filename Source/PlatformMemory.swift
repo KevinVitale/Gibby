@@ -34,3 +34,27 @@ extension PlatformMemory {
         try Data(self[bytes]).write(to: url, options: options)
     }
 }
+
+import CryptoKit
+extension Data {
+    @available(OSX 10.15, *)
+    public var md5: Data? {
+        var md5Hash = Insecure.MD5()
+        md5Hash.update(data: Data(self[0..<self.endIndex]))
+        return md5Hash
+            .finalize()
+            .withUnsafeBytes({ unsafeBytes -> Data? in
+                guard let baseAddress = unsafeBytes.baseAddress else {
+                    return nil
+                }
+                return Data(bytes: baseAddress, count: Insecure.MD5.byteCount)
+            })
+    }
+}
+
+extension PlatformMemory {
+    @available(OSX 10.15, *)
+    public var md5: Data? {
+        Data(self[0..<self.endIndex]).md5
+    }
+}
