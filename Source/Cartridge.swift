@@ -4,6 +4,18 @@ public protocol Cartridge: PlatformMemory {
     var fileExtension: String { get }
 }
 
+extension Cartridge {
+    public init(filePath: String) throws {
+        let bytes = try Data(contentsOf: URL(fileURLWithPath: filePath), options: [])
+        self.init(bytes: bytes)
+    }
+    
+    public init(url: URL) throws {
+        let bytes = try Data(contentsOf: url, options: [])
+        self.init(bytes: bytes)
+    }
+}
+
 extension Cartridge where Platform == GameboyClassic {
     public var fileExtension: String {
         switch header.colorMode {
